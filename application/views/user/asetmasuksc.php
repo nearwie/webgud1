@@ -41,9 +41,9 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('asetmasuk') ;?>">Aset SU-CA Masuk </a>
+								<a href="<?= base_url ('dataasetsc') ;?>">Persediaan Suku Cadang</a>
 							</li>
-							<li class="active">Historis Aset SU-CA Masuk </li>
+							<li class="active">Aset Masuk </li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -93,7 +93,7 @@
 										   <?= $this->session->flashdata('message'); ?>
 											<?= $this->session->flashdata('pesan'); ?>
 
-										<h3 class="header smaller lighter blue">Aset SU-CA Masuk</h3>
+										<h3 class="header smaller lighter blue">Aset Masuk (Suku Cadang)</h3>
 										<div class="pull-right tableTools-container"></div>
 										</div>
 										<div class="col-auto">
@@ -110,7 +110,7 @@
 										<div class="clearfix">
 
 										<div class="table-header">
-											Historis Aset SU-CA Masuk 
+											Historis Aset Masuk
 										</div>
 
 
@@ -158,7 +158,7 @@
 																
 
 																
-																<a class="red" href="<?= base_url('barangmasuk/delete/') . $bm['id_aset_masuk'] ?>" onclick="javascript: return confirm('Apakah yakin menghapus')">
+																<a class="red" href="<?= base_url('asetmasuk/delete/') . $bm['id_aset_masuk'] ?>" onclick="javascript: return confirm('Apakah yakin menghapus')">
 																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
 																</a>
 															</div>

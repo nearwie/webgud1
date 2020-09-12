@@ -41,6 +41,9 @@
 							</li>
 
 							<li>
+								<a href="<?= base_url('dataaset') ?>">Persediaan Toolkit</a>
+							</li>
+							<li>
 								<a href="<?= base_url('asetkeluar') ?>">Aset Keluar</a>
 							</li>
 							<li class="active">Input Aset Keluar</li>
@@ -62,10 +65,9 @@
 					<!-- /section:basics/content.breadcrumbs -->
 						<div class="page-header">
 							<h1>
-								Input Aset Keluar
+								Form Input Aset Keluar (Toolkit)
 								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									Persediaan Aset
+									
 								</small>
 							</h1>
 						</div><!-- /.page-header -->

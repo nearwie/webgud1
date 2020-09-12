@@ -41,7 +41,10 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url('barangmasuk') ;?>">Aset Masuk</a>
+								<a href="<?= base_url('dataasetsc') ;?>">Persediaan Suku Cadang</a>
+							</li>
+							<li>
+								<a href="<?= base_url('asetmasuksc') ;?>">Aset Masuk</a>
 							</li>
 							<li class="active">Input Aset Masuk</li>
 						</ul><!-- /.breadcrumb -->
@@ -62,10 +65,10 @@
 					<!-- /section:basics/content.breadcrumbs -->
 						<div class="page-header">
 							<h1>
-								Input Aset Masuk
+								Form Input Aset Masuk (Suku Cadang)
 								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									Persediaan Aset
+									
+									
 								</small>
 							</h1>
 						</div><!-- /.page-header -->
@@ -93,7 +96,7 @@
 												<div class="col-xs-8 col-sm-3">
 																<!-- #section:plugins/date-time.datepicker -->
 													<div class="input-group">
-														<input value="<?= set_value('tanggal_masuk'); ?>" class="form-control date-picker" id="tanggal_masuk" name="tanggal_masuk" type="text" data-date-format="yyyy-mm-dd" placeholder="Tanggal masuk..." > 
+														<input value="<?= set_value('tanggal_masuk'); ?>" class="form-control date-picker" id="tanggal_masuk" name="tanggal_masuk" type="text" data-date-format="yyyy-mm-dd" placeholder="tanggal masuk..." > 
 														<span class="input-group-addon">
 														<i class="fa fa-calendar bigger-110"></i>
 													</span>

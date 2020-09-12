@@ -40,8 +40,10 @@
 								<a href="#">Home</a>
 							</li>
 
-							
-							<li class="active">Daftar Aset</li>
+							<li>
+								<a href="<?= base_url('dataaset') ;?>">Persediaan Toolkit</a>
+							</li>
+							<li class="active">Add Aset Toolkit</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -60,11 +62,8 @@
 					<!-- /section:basics/content.breadcrumbs -->
 						<div class="page-header">
 							<h1>
-								Daftar Aset
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									Tambah Aset
-								</small>
+								Form Tambah Aset (Toolkit)
+								
 							</h1>
 						</div><!-- /.page-header -->
 

@@ -41,6 +41,10 @@
 							</li>
 
 							<li>
+								<a href="<?= base_url ('detailbrg') ;?>">Persediaan Pias</a>
+							</li>
+
+							<li>
 								<a href="<?= base_url('barangmasuk') ;?>">Barang Masuk</a>
 							</li>
 							<li class="active">Input Barang Masuk</li>
@@ -62,10 +66,9 @@
 					<!-- /section:basics/content.breadcrumbs -->
 						<div class="page-header">
 							<h1>
-								Input Barang Masuk
+								Form Input Barang Masuk
 								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									Persediaan Pias
+									
 								</small>
 							</h1>
 						</div><!-- /.page-header -->

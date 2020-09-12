@@ -28,18 +28,18 @@ class Aset_model extends CI_Model
         return $this->db->get($table)->result_array();
     }
 
-    public function chartBarangMasuk($bulan)
+    public function chartAsetMasuk($bulan)
     {
         $like = 'T-BM-' . date('y') . $bulan;
-        $this->db->like('id_barang_masuk', $like, 'after');
-        return count($this->db->get('barang_masuk')->result_array());
+        $this->db->like('id_aset_masuk', $like, 'after');
+        return count($this->db->get('aset_masuk')->result_array());
     }
 
-    public function chartBarangKeluar($bulan)
+    public function chartAsetKeluar($bulan)
     {
         $like = 'T-BK-' . date('y') . $bulan;
-        $this->db->like('id_barang_keluar', $like, 'after');
-        return count($this->db->get('barang_keluar')->result_array());
+        $this->db->like('id_aset_keluar', $like, 'after');
+        return count($this->db->get('aset_keluar')->result_array());
     }
 
 

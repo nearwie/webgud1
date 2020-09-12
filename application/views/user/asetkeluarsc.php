@@ -41,9 +41,9 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('asetkeluar') ;?>">Aset SU-CA Keluar</a>
+								<a href="<?= base_url ('asetkeluar') ;?>">Persediaan Suku Cadang</a>
 							</li>
-							<li class="active">Historis Aset SU-CA Keluar</li>
+							<li class="active">Aset Keluar</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -93,7 +93,7 @@
 										   <?= $this->session->flashdata('message'); ?>
 											<?= $this->session->flashdata('pesan'); ?>
 
-										<h3 class="header smaller lighter blue">Aset Keluar</h3>
+										<h3 class="header smaller lighter blue">Aset Keluar (Suku Cadang)</h3>
 										<div class="pull-right tableTools-container"></div>
 										</div>
 										<div class="col-auto">
@@ -110,7 +110,7 @@
 										<div class="clearfix">
 
 										<div class="table-header">
-											Historis Aset SU-CA Keluar
+											Historis Aset Keluar
 										</div>
 
 

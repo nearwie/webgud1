@@ -41,6 +41,9 @@
 							</li>
 
 							<li>
+								<a href="<?= base_url('dataasetsc') ?>">Persediaan Suku Cadang</a>
+							</li>
+							<li>
 								<a href="<?= base_url('asetkeluarsc') ?>">Aset Keluar</a>
 							</li>
 							<li class="active">Input Aset Keluar</li>
@@ -62,11 +65,8 @@
 					<!-- /section:basics/content.breadcrumbs -->
 						<div class="page-header">
 							<h1>
-								Input Aset Keluar
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									Persediaan Aset Suku Cadang
-								</small>
+								Form Input Aset Keluar (Suku Cadang)
+								
 							</h1>
 						</div><!-- /.page-header -->
 

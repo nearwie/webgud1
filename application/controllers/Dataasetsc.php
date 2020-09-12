@@ -217,6 +217,41 @@ class Dataasetsc extends CI_Controller
 	    }
 
 
+	     public function dynamis ()
+    {
+        $data['title'] = 'Notifikasi Dynamis ';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
+        $this->load->library('session');
+        $data['aset'] = $this->asetscm->count('tbl_brgsc');
+        $data['aset_masuk'] = $this->asetscm->count('asetsc_masuk');
+        $data['aset_keluar'] = $this->asetscm->count('asetsc_keluar');
+       
+        $data['stok'] = $this->asetscm->sum('tbl_brgsc', 'stok');
+        $data['aset_min'] = $this->asetscm->min('tbl_brgsc', 'stok', 10);
+        $data['transaksi'] = [
+            'asetsc_masuk' => $this->asetscm->getAsetMasuk(5),
+            'asetsc_keluar' => $this->asetscm->getAsetKeluar(5)
+        ];
+
+        // Line Chart
+        $bln = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+        $data['cbm'] = [];
+        $data['cbk'] = [];
+
+        foreach ($bln as $b) {
+            $data['cbm'][] = $this->asetscm->chartAsetMasuk($b);
+            $data['cbk'][] = $this->asetscm->chartAsetKeluar($b);
+        }
+
+        
+
+        
+        $this->load->view('user/notif_sc', $data);
+        
+    }
+
+
+
 
 
     

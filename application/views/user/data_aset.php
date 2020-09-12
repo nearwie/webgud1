@@ -39,9 +39,10 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Home</a>
 							</li>
-
-							
-							<li class="active">Daftar Aset SU-CA</li>
+							<li>
+								<a href="<?= base_url ('dataasetsc') ;?>">Persediaan Suku Cadang</a>
+							</li>
+							<li class="active">Daftar Aset </li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -95,7 +96,7 @@
 											<div class="widget-header widget-header-large">
 												<h3 class="widget-title grey lighter">
 													<i class="ace-icon "></i>
-													Daftar Aset SU-CA
+													Detail Aset (Suku Cadang)
 												</h3>
 
 												<!-- #section:pages/invoice.info -->
@@ -124,7 +125,7 @@
 							                        <i class="fa fa-plus"></i>
 							                    </span>
 							                    <span class="text">
-							                       Tambah Aset SU-CA
+							                       Tambah Aset 
 							                    </span>
 							                </a>
 							            </div>
@@ -132,7 +133,7 @@
 										<div class="clearfix">
 
 										<div class="table-header">
-											Detail Aset SU-CA
+											Suku Cadang Staklim Lobar
 										</div>
 
 										<!-- div.table-responsive -->

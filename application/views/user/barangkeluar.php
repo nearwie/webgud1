@@ -41,9 +41,9 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('barangkeluar') ;?>">Barang Keluar</a>
+								<a href="<?= base_url ('detailbrg') ;?>">Persediaan Pias</a>
 							</li>
-							<li class="active">Historis Barang Keluar</li>
+							<li class="active">Barang Keluar</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -93,7 +93,7 @@
 										   <?= $this->session->flashdata('message'); ?>
 											<?= $this->session->flashdata('pesan'); ?>
 
-										<h3 class="header smaller lighter blue">Barang Keluar</h3>
+										<h3 class="header smaller lighter blue">Barang Keluar (Pias)</h3>
 										<div class="pull-right tableTools-container"></div>
 										</div>
 										<div class="col-auto">

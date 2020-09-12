@@ -23,7 +23,7 @@ class  Asetmasuksc extends CI_Controller
 
     public function index ()
     {   
-        $data['title'] = 'Daftar Aset SU-CA Masuk';
+        $data['title'] = 'Daftar Aset Masuk';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
         $this->load->library('session');
          $data['asetmasuk'] = $this->asetscm->getAsetMasuk();
@@ -39,22 +39,24 @@ class  Asetmasuksc extends CI_Controller
     
    
 
-  public function delete()
-    {   $this->load->model('Asetsc_model');
+
+    public function delete()
+    {   $this->load->model('Aset_model');
         $id = $this->uri->segment(3);
         
         if (empty($id))
         {
             $this->session->set_flashdata('message',  '<div class="alert alert-danger" role="alert">Gagal hapus data aset masuk</div>');
-        redirect( base_url() . 'asetmasuksc'); 
+        redirect( base_url() . 'asetmasuk'); 
         }
                 
-        $a = $this->asetscm->get_astmsk_by_id($id);
+        $a = $this->asetm->get_astmsk_by_id($id);
         
-        $this->asetscm->delete_astmsk($id);   
+        $this->asetm->delete_astmsk($id);   
              $this->session->set_flashdata('message',  '<div class="alert alert-success" role="alert">Berhasil hapus data aset masuk</div>');
-        redirect( base_url() . 'asetmasuksc');        
+        redirect( base_url() . 'asetmasuk');        
     }
+
 
   
 

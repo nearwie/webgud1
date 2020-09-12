@@ -24,12 +24,8 @@ class  Addasetmasuksc extends CI_Controller
 
    private function _validasi()
     {
-        $this->form_validation->set_rules('tanggal_masuk', 'tanggal_masuk', 'required|trim', [
-            'required' => 'Kolom Tanggal Masuk wajib diisi' 
-        ]);
-        $this->form_validation->set_rules('aset_id', 'aset_id', 'required',  [
-            'required' => 'Kolom Nama Aset Masuk wajib diisi' 
-        ]);
+        $this->form_validation->set_rules('tanggal_masuk', 'tanggal_masuk', 'required|trim');
+        $this->form_validation->set_rules('aset_id', 'aset_id', 'required');
 
         $input = $this->input->post('aset_id', true);
         $stok = $this->asetscm->get('tbl_brgsc', ['kode_brg' => $input])['stok']; 
@@ -43,7 +39,7 @@ class  Addasetmasuksc extends CI_Controller
     {
         $this->_validasi();
         if ($this->form_validation->run() == false) {
-            $data['title'] = "Input Aset SU-CA Masuk";
+            $data['title'] = "Input Aset Masuk";
             $data['aset'] = $this->asetscm->get('tbl_brgsc', null);
              $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
 
@@ -76,30 +72,30 @@ class  Addasetmasuksc extends CI_Controller
      public function deletes($getId)
     {
         $id = encode_php_tags($getId);
-        if ($this->asetscm->delete('asetsc_masuk', 'id_barang_masuk', $id)) {
+        if ($this->barangm->delete('barang_masuk', 'id_barang_masuk', $id)) {
             set_pesan('data berhasil dihapus.');
         } else {
             set_pesan('data gagal dihapus.', false);
         }
-        redirect('Asetmasuk');
+        redirect('barangmasuk');
     }
 
 
     public function delete()
-    {   $this->load->model('Asetsc_model');
+    {   $this->load->model('Barang_model');
         $id = $this->uri->segment(3);
         
         if (empty($id))
         {
-            $this->session->set_flashdata('message',  '<div class="alert alert-danger" role="alert">Gagal hapus data aset masuk</div>');
-        redirect( base_url() . 'Asetmasuksc'); 
+            $this->session->set_flashdata('message',  '<div class="alert alert-danger" role="alert">Gagal hapus data barang masuk</div>');
+        redirect( base_url() . 'barangmasuk'); 
         }
                 
-        $a = $this->asetsc_model->get_brgmsk_by_id($id);
+        $a = $this->barang_model->get_brgmsk_by_id($id);
         
-        $this->asetsc_model->delete_astmsk($id);   
-             $this->session->set_flashdata('message',  '<div class="alert alert-success" role="alert">Berhasil hapus data aset masuk</div>');
-        redirect( base_url() . 'asetmasuksc');        
+        $this->barang_model->delete_brgmsk($id);   
+             $this->session->set_flashdata('message',  '<div class="alert alert-success" role="alert">Berhasil hapus data barang masuk</div>');
+        redirect( base_url() . 'barangmasuk');        
     }
 
 

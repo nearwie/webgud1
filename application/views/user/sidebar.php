@@ -72,6 +72,14 @@
 							
 
 							<li class="">
+								<a href="<?= base_url('detailbrg/dynamis') ;?>">
+									<i class="menu-icon fa fa-caret-right "></i>
+									Notifikasi Dynamis
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li class="">
 								<a href="<?= base_url('barangmasuk') ;?>">
 									<i class="menu-icon fa fa-caret-right "></i>
 									Barang Masuk
@@ -162,6 +170,14 @@
 							
 
 							<li class="">
+								<a href="<?= base_url('dataaset/dynamis') ;?>">
+									<i class="menu-icon fa fa-caret-right "></i>
+									Notifikasi Dynamis
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li class="">
 								<a href="<?= base_url('asetmasuk') ;?>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Aset Toolkit Masuk 
@@ -191,7 +207,7 @@
 
 								<ul class="submenu">
 									<li class="">
-										<a href="<?= base_url('laporanaset') ?>">
+										<a href="<?= base_url('laporantools') ?>">
 											<i class="menu-icon fa fa-leaf green"></i>
 											Laporan
 										</a>
@@ -252,6 +268,14 @@
 							
 							
 
+							<li class="">
+								<a href="<?= base_url('dataasetsc/dynamis') ;?>">
+									<i class="menu-icon fa fa-caret-right "></i>
+									Notifikasi Dynamis
+								</a>
+
+								<b class="arrow"></b>
+							</li>
 							<li class="">
 								<a href="<?= base_url('asetmasuksc') ;?>">
 									<i class="menu-icon fa fa-caret-right"></i>

@@ -41,7 +41,10 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url('barangmasuk') ;?>">Aset Masuk</a>
+								<a href="<?= base_url('dataaset') ;?>">Persediaan Toolkit</a>
+							</li>
+							<li>
+								<a href="<?= base_url('asetmasuk') ;?>">Aset Masuk</a>
 							</li>
 							<li class="active">Input Aset Masuk</li>
 						</ul><!-- /.breadcrumb -->
@@ -62,11 +65,8 @@
 					<!-- /section:basics/content.breadcrumbs -->
 						<div class="page-header">
 							<h1>
-								Input Aset Masuk
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									Persediaan Aset
-								</small>
+								Form Input Aset Masuk (Toolkit)
+								
 							</h1>
 						</div><!-- /.page-header -->
 
@@ -118,7 +118,7 @@
 												<option value="" selected disabled >Pilih Aset</option>
 
 												  <?php foreach ($aset as $b) : ?> 
-		                                    <option value="<?= $b['kode_brg'] ?>">kode:<?= $b['kode_brg'] . ' - ' . $b['nama_brg'] ?></option>
+		                                    <option value="<?= $b['kode_brg'] ?>">kode:<?= $b['kode_brg'] . ' - ' . $b['nama_brg'] . ' - ' . $b['merk']?></option>
 		                                <?php endforeach; ?>				
 											</select>									
 										</div>

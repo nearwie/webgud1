@@ -41,9 +41,9 @@
 							</li>
 
 							<li>
-								<a href="#">Data Aset</a>
+								<a href="<?= base_url('dataasetsc') ?>">Persediaan Suku Cadang</a>
 							</li>
-							<li class="active">Daftar Aset</li>
+							<li class="active">Laporan</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -98,7 +98,7 @@
 											<div class="widget-header widget-header-large">
 												<h3 class="widget-title grey lighter">
 													<i class="ace-icon fa fa-leaf green"></i>
-													Form Laporan Aset
+													Laporan Aset (Suku Cadang)
 												</h3>
 
 												<!-- #section:pages/invoice.info -->

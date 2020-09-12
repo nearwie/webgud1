@@ -41,9 +41,9 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('dataaset') ;?>">Persediaan Toolkit</a>
+								<a href="<?= base_url('dataaset') ?>">Persediaan Toolkit</a>
 							</li>
-							<li class="active">Daftar Aset</li>
+							<li class="active">Laporan</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -85,198 +85,127 @@
 								</div><!-- /.pull-left -->
 							</div><!-- /.ace-settings-box -->
 						</div><!-- /.ace-settings-container -->
-
-						<!-- /section:settings.box -->
-						<div class="row">
-									<div class="col-xs-12">
-
-          							<?= $this->session->flashdata('message'); ?>
-          							<?= $this->session->flashdata('pesan'); ?>
-
-										<div class="widget-box transparent">
-											<div class="widget-header widget-header-large">
-												<h3 class="widget-title grey lighter">
-													<i class="ace-icon "></i>
-													Detail Aset (Toolkit)
-												</h3>
-
-												<!-- #section:pages/invoice.info -->
-												<div class="widget-toolbar no-border invoice-info">
-													<span class="invoice-info-label">Laporan</span>
-													<span class="red">Bulanan</span>
-
-													<br />
-													<span class="invoice-info-label">Tanggal</span>
-													<span class="blue"><?= tanggal()?></span>
-												</div>
-
-												<div class="widget-toolbar hidden-480">
-													<a href="<?= base_url('laporanaset/createpdf')?>">
-														<i class="ace-icon fa fa-print"></i>
-													</a>
-												</div>
-
-												<!-- /section:pages/invoice.info -->
-											</div>
-										<div class="pull-right tableTools-container"></div>
-										</div>
-										<div class="col-auto">
-							                <a href="<?= base_url('dataaset/tambah'); ?>" class="btn btn-success">
-							                    <span class="icon">
-							                        <i class="fa fa-plus"></i>
-							                    </span>
-							                    <span class="text">
-							                       Tambah Aset
-							                    </span>
-							                </a>
-							            </div>
-
-										<div class="clearfix">
-
-										<div class="table-header">
-											Toolkit Staklim Lobar
-										</div>
-
-										<!-- div.table-responsive -->
-
-										<!-- div.dataTables_borderWrap -->
-										<div class="table-responsive">
-											<table id="example" class="table table-striped table-bordered table-hover">
-												<thead>
-													<tr>
-														
-														<th>No</th>
-														<th>Kode</th>
-														<th>Gambar</th>
-														<th>Nama</th>
-														<th>Type</th>
-														<th>Merk</th>
-														<th>S/N</th>
-														<th>Status</th>
-														<th>Stok</th>
-														
-														
-														
-														<th >Opsi</th>
-
-													
-													</tr>
-												</thead>
-
-												<tbody>
-													<tr>
-														 <?php $i = 1;  ?>
-				  											<?php foreach ($databrgs as $a) :?>
-														
-
-														<td>
-															<?= $i;?>
-														</td>
-														<td nowrap><?= $a['kode_brg'];?></td>
-														 <td nowrap>
-														 	<img width="60px" src="<?= base_url().'assets/img/upload/'.$a['gambar']?>">
-														 	
-
-
-														 </td>
-															
-													      <td><?= $a['nama_brg'];?></td>
-													      <td style="text-align: center;" ><?= $a['nama_type'];?></td>
-													      <td style="text-align: center;"><?= $a['merk'];?></td>
-													      <td style="text-align: center;"><?= $a['no_seri'];?></td>
-													     <td style="text-align: center;" ><?php 
-													     if ($a['stok'] == 0 ) {
-													     	echo "<span class='badge badge-danger'>Tidak tersedia</span>";
-													     } else {
-													     	echo "<span class='badge badge-success'>Tersedia</span>";
-													     }
-
-
-
-
-
-													      ?></td>
-													      <td style="text-align: center;"><?= $a['stok'];?></td>
-													    
-														<td>
-															<div class="hidden-sm hidden-xs action-buttons">
-																
-
-																<a class="green" href="<?php echo base_url('dataaset/edit/'.$a['kode_brg']) ?>" class="badge badge-success">
-																	<i class="ace-icon fa fa-pencil bigger-130"></i>
-																</a>
-
-																<a class="red" href="<?php echo base_url('dataaset/delete/'.$a['kode_brg']) ?>"  onclick="javascript: return confirm('Apakah yakin menghapus')" class="badge badge-danger">
-																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-
-															<div class="hidden-md hidden-lg">
-																<div class="inline pos-rel">
-																	<button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
-																		<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
-																	</button>
-
-																	<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-																		
-																		<li>
-																			<a href="<?php echo base_url('dataaset/edit/'.$a['kode_brg']) ?>"  class="tooltip-success" data-rel="tooltip" title="Edit">
-																				<span class="green">
-																					<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
-
-																		<li>
-																			<a href="<?php echo base_url('dataaset/delete/'.$a['kode_brg']) ?>"  class="tooltip-error" data-rel="tooltip" title="Delete">
-																				<span class="red">
-																					<i class="ace-icon fa fa-trash-o bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</td>
-													</tr>
-
-													
-													
-
-														
-
-														<?php $i++; ?>
-													<?php endforeach; ?>
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-
-								
-													
-												
-											</div>
-										</div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- PAGE CONTENT ENDS -->
-							</div><!-- /.col -->
-						</div><!-- /.row -->
-					</div><!-- /.page-content -->
-				</div>
-			</div><!-- /.main-content -->
-							
-
-
-									<!-- /section:basics/sidebar.options -->
-								</div><!-- /.pull-left -->
-							</div><!-- /.ace-settings-box -->
-						</div><!-- /.ace-settings-container -->
-
-						<!-- /section:settings.box -->
+<!-- /section:settings.box -->
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
+								<div class="space-6"></div>
+
+								<div class="row">
+									<div class="col-sm-10 col-sm-offset-1">
+										<!-- #section:pages/invoice -->
+										<div class="widget-box transparent">
+											<div class="widget-header widget-header-large">
+												<h3 class="widget-title grey lighter">
+													<i class="ace-icon fa fa-leaf green"></i>
+													Laporan Aset (Toolkit)
+												</h3>
+
+												<!-- #section:pages/invoice.info -->
+												
+
+												<!-- /section:pages/invoice.info -->
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main padding-24">
+													<div class="row">
+														<div class="col-sm-6">
+															<div class="row">
+																<div class="col-xs-11 label label-lg label-success arrowed-in arrowed-right">
+																	<b>Aset Masuk</b>
+																</div>
+															</div>
+
+															<div>
+																
+															</div>
+														</div><!-- /.col -->
+
+														<div class="col-sm-6">
+															<div class="row">
+																<div class="col-xs-11 label label-lg label-danger arrowed-in arrowed-right">
+																	<b>Aset Keluar</b>
+																</div>
+															</div>
+
+															<div>
+																
+															</div>
+														</div><!-- /.col -->
+													</div><!-- /.row -->
+
+													<div class="hr hr8 hr-double hr-dotted"></div>
+
+
+													<div class="space"></div>
+
+													<div>
+														<div class="card-body">
+											                <?= $this->session->flashdata('pesan'); ?>
+											                <?= form_open(); ?>
+											                <div class="row form-group">
+											                    <label class="col-md-3 text-md-right" for="transaksi">Laporan Mutasi Aset</label>
+											                    <div class="col-md-9">
+											                        <div class="custom-control custom-radio">
+											                            <input value="aset_masuk" type="radio" id="aset_masuk" name="transaksi" class="custom-control-input">
+											                            <label class="custom-control-label" for="aset_masuk">Aset Masuk</label>
+											                        </div>
+											                        <div class="custom-control custom-radio">
+											                            <input value="aset_keluar" type="radio" id="aset_keluar" name="transaksi" class="custom-control-input">
+											                            <label class="custom-control-label" for="aset_keluar">Aset Keluar</label>
+											                        </div>
+											                        <?= form_error('transaksi', '<span class="text-danger small">', '</span>'); ?>
+											                    </div>
+											                </div>
+											                <div class="row form-group">
+											                    <label class="col-lg-3 text-lg-right" for="tanggal">Tanggal</label>
+											                    <div class="col-lg-6">
+											                        <div class="input-group">
+											                        	<span class="input-group-addon">
+																			<i class="fa fa-calendar bigger-110"></i>
+																		</span>
+											                            <input value="" class="form-control" type="text" name="tanggal" id="tanggal"  placeholder="Periode Tanggal">
+											                            <div class="input-group-append">
+											                                
+											                            </div>
+											                        </div>
+											                        <?= form_error('tanggal', '<small class="text-danger">', '</small>'); ?>
+											                    </div>
+											                </div>
+											                <div class="row form-group">
+											                    <div class="col-lg-2 offset-lg-3 pull-right">
+											                        <button type="submit" class="btn btn-success btn-icon-split">
+											                            <span class="icon">
+											                                <i class="fa fa-print"></i>
+											                            </span>
+											                            <span class="text">
+											                                Cetak
+											                            </span>
+											                        </button>
+											                    </div>
+											                </div>
+											                <?= form_close(); ?>
+											            </div>
+																									
+													</div>
+
+													<div class="hr hr8 hr-double hr-dotted"></div>
+
+													<div class="row">
+														
+														
+													</div>
+
+													<div class="space-6"></div>
+													
+												</div>
+											</div>
+										</div>
+
+										<!-- /section:pages/invoice -->
+									</div>
+								</div>
 
 								<!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->
@@ -331,6 +260,22 @@
 		<script src="<?= base_url('assets/') ;?>js/dataTables/extensions/TableTools/js/dataTables.tableTools.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/dataTables/extensions/ColVis/js/dataTables.colVis.js"></script>
 
+		<script src="<?= base_url('assets/') ;?>js/jquery-ui.custom.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/jquery.ui.touch-punch.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/chosen.jquery.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/fuelux/fuelux.spinner.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/date-time/bootstrap-datepicker.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/date-time/bootstrap-timepicker.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/date-time/moment.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/date-time/daterangepicker.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/date-time/bootstrap-datetimepicker.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/bootstrap-colorpicker.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/jquery.knob.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/jquery.autosize.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/jquery.inputlimiter.1.3.1.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/jquery.maskedinput.js"></script>
+		<script src="<?= base_url('assets/') ;?>js/bootstrap-tag.js"></script>
+
 		<!-- ace scripts -->
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.scroller.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.colorpicker.js"></script>
@@ -360,6 +305,36 @@
    			 $('#example').DataTable();
 				} );
 		</script>
+		
+		<script type="text/javascript">
+		$(function() {
+
+		    var start = moment().subtract(29, 'days');
+		    var end = moment();
+
+		    function cb(start, end) {
+		        $('#tanggal').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+		    }
+
+		    $('#tanggal').daterangepicker({
+		        startDate: start,
+		        endDate: end,
+		        ranges: {
+		           'Today': [moment(), moment()],
+		           'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+		           'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+		           'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+		           'This Month': [moment().startOf('month'), moment().endOf('month')],
+		           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+		        }
+		    }, cb);
+
+		    cb(start, end);
+
+		});
+		</script>
+
+		
 		
 		<!-- the following scripts are used in demo only for onpage help and you don't need them -->
 		<link rel="stylesheet" href="<?= base_url('assets/') ;?>css/ace.onpage-help.css" >

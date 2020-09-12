@@ -218,6 +218,42 @@ class Dataaset extends CI_Controller
 
 
 
+	    public function dynamis ()
+    {
+        $data['title'] = 'Notifikasi Dynamis ';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
+        $this->load->library('session');
+        $data['aset'] = $this->asetm->count('tbl_brg');
+        $data['aset_masuk'] = $this->asetm->count('aset_masuk');
+        $data['aset_keluar'] = $this->asetm->count('aset_keluar');
+       
+        $data['stok'] = $this->asetm->sum('tbl_brg', 'stok');
+        $data['aset_min'] = $this->asetm->min('tbl_brg', 'stok', 10);
+        $data['transaksi'] = [
+            'aset_masuk' => $this->asetm->getAsetMasuk(5),
+            'aset_keluar' => $this->asetm->getAsetKeluar(5)
+        ];
+
+        // Line Chart
+        $bln = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+        $data['cbm'] = [];
+        $data['cbk'] = [];
+
+        foreach ($bln as $b) {
+            $data['cbm'][] = $this->asetm->chartAsetMasuk($b);
+            $data['cbk'][] = $this->asetm->chartAsetKeluar($b);
+        }
+
+        
+
+        
+        $this->load->view('user/notif_toolkit', $data);
+        
+    }
+
+
+
+
 
     
 

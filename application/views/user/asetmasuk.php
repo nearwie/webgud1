@@ -41,9 +41,9 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('asetmasuk') ;?>">Aset Masuk</a>
+								<a href="<?= base_url ('dataaset') ;?>">Persediaan Toolkit</a>
 							</li>
-							<li class="active">Historis Aset Masuk</li>
+							<li class="active">Aset Masuk</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -93,7 +93,7 @@
 										   <?= $this->session->flashdata('message'); ?>
 											<?= $this->session->flashdata('pesan'); ?>
 
-										<h3 class="header smaller lighter blue">Aset Masuk</h3>
+										<h3 class="header smaller lighter blue">Aset Masuk (Toolkit)</h3>
 										<div class="pull-right tableTools-container"></div>
 										</div>
 										<div class="col-auto">

@@ -39,6 +39,9 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Home</a>
 							</li>
+							<li>
+								<a href="<?= base_url ('detailbrg') ;?>">Persediaan Pias</a>
+							</li>
 
 							<li>
 								<a href="<?= base_url('barangkeluar') ?>">Barang Keluar</a>
@@ -62,10 +65,9 @@
 					<!-- /section:basics/content.breadcrumbs -->
 						<div class="page-header">
 							<h1>
-								Input Barang Keluar
+								Form Input Barang Keluar (Pias)
 								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									Persediaan Pias
+									
 								</small>
 							</h1>
 						</div><!-- /.page-header -->
