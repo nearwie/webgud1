@@ -30,7 +30,7 @@
     </table>
     <hr class="line-title">
 <!--<div class="container-fluid"> -->
-    <center><h5>LAPORAN INVENTARISIR TOOLKIT</h5>
+    <center><h5>PERSEDIAAN SUKU CADANG POS HUJAN KERJASAMA</h5>
         <h5>Update Bulan <?= bulan (). " ".Date('Y');  ?> 
      
         </h5>
@@ -42,8 +42,8 @@
                     
                       <th width="20%0%" scope="col" style="text-align: center; font-size: 14px">Kode Barang</th>
                       <th width="30%%" scope="col" style="text-align: center; font-size: 14px">Nama</th>
-                        <th  width="40%" scope="col" style="text-align: center; font-size: 14px">Type</th>
-                      <th width="10%" scope="col" style="text-align: center; font-size: 14px">Merk</th>
+                        <th  width="40%" scope="col" style="text-align: center; font-size: 14px">Merk</th>
+                      <th width="10%" scope="col" style="text-align: center; font-size: 14px">Kategori</th>
                       
                       <th width="30%"  style="text-align: center; font-size: 14px">Jumlah Tersedia</th>
                    
@@ -60,8 +60,8 @@
                       
                       <td style="text-align: center; font-size: 12px t"><?= $a['kode_brg'];?></td>
                       <td style="font-size: 12px"><?= $a['nama_brg'];?></td>
-                      <td style="text-align: center; font-size: 12px" ><?= $a['nama_type'];?></td>
-                      <td style="text-align: center; font-size: 12px"><?= $a['merk'];?></td>
+                      <td style="text-align: center; font-size: 12px" ><?= $a['merk'];?></td>
+                      <td style="text-align: center; font-size: 12px"><?= $a['nama_type'];?></td>
                  
                      <td nowrap style="text-align: center;font-size: 12px"><?= $a['stok'];?></td>
                   
@@ -105,7 +105,7 @@
                     <tr>
                         <td align="center" style="font-size: 14px"><b>NIP . 197906022001121001</b></td>
                         <td align="center">&nbsp;</td>
-                        <td align="center" style="font-size: 14px"><b>NIP . 199301092013121001</b></td>
+                        <td align="center" style="font-size: 14px"><b>NIP . 1995031520141111000</b></td>
                     </tr>
                 </table>
 </body>

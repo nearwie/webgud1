@@ -41,9 +41,9 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('dataasetsc') ;?>">Persediaan Suku Cadang</a>
+								<a href="<?= base_url ('asetkeluar') ;?>">Pos Hujan</a>
 							</li>
-							<li class="active">Aset Masuk </li>
+							<li class="active">Riwayat Kegiatan</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -93,16 +93,16 @@
 										   <?= $this->session->flashdata('message'); ?>
 											<?= $this->session->flashdata('pesan'); ?>
 
-										<h3 class="header smaller lighter blue">Aset Masuk (Suku Cadang)</h3>
+										<h3 class="header smaller white">Riwayat Kegiatan Pos Hujan OBS</h3>
 										<div class="pull-right tableTools-container"></div>
 										</div>
 										<div class="col-auto">
-							                <a href="<?= base_url('addasetmasuksc'); ?>" class="btn btn-success">
+							                <a>
 							                    <span class="icon">
-							                        <i class="fa fa-plus"></i>
+							                        <i ></i>
 							                    </span>
 							                    <span class="text">
-							                        Input Aset Masuk
+							                      
 							                    </span>
 							                </a>
 							            </div>
@@ -110,7 +110,7 @@
 										<div class="clearfix">
 
 										<div class="table-header">
-											Historis Aset Masuk
+											Staklim Lobar
 										</div>
 
 
@@ -123,13 +123,14 @@
 													<tr>
 														
 														<th>No. </th>
-									                    <th>No Transaksi</th>
-									                    <th>Tanggal Masuk</th>
-									                    <th>Nama</th>
-									                    <th>Merk</th>
-									                    <th>Kategori</th>
-									                    <th>Jumlah Masuk</th>
-									                    <th>Petugas</th>
+									                    <th>STA ID</th>
+									                    <th>Pos Hujan</th>
+									                    <th>Kab/Kota</th>
+									                    <th>Tanggal</th>
+									                    <th>Kegiatan</th>
+									                    <th>Petugas 1</th>
+									                    <th>Petugas 2</th>
+									      
 														<th >Opsi</th>
 
 													
@@ -142,25 +143,26 @@
 													
 									               <?php $i = 1;  
 									                
-									                    foreach ($asetmasuk as $bm) :
+									                    foreach ($riwayat as $r) :
 									                        ?>
 														
 														
 
 														 <td><?= $i;?></td>
-							                            <td><?= $bm['id_aset_masuk']; ?></td>
-							                            <td><?= $bm['tanggal_masuk']; ?></td>
-							                            <td><?= $bm['nama_brg']; ?></td>
-							                            <td><?= $bm['merk']; ?></td>
-							                            <td><?= $bm['nama_type']; ?></td>
-							                            <td><?= $bm['jumlah_masuk']; ?></td>
-							                            <td><?= $bm['name']; ?></td>
+							                            <td><?= $r['sta_id']; ?></td>
+							                            <td><?= $r['nama_pos']; ?></td>
+							                            <td><?= $r['wilayah']; ?></td>
+							                            <td><?= $r['tanggal_keluar']; ?></td>
+							                            <td><?= $r['tujuan']; ?></td>
+							                            <td><?= $r['petugas_1']; ?></td>
+							                            <td><?= $r['petugas_2']; ?></td>
+							                            
 														<td>
 															<div class="hidden-sm hidden-xs action-buttons">
 																
 
 																
-																<a class="red" href="<?= base_url('asetmasuk/delete/') . $bm['id_aset_masuk'] ?>" onclick="javascript: return confirm('Apakah yakin menghapus')">
+																<a class="red" >
 																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
 																</a>
 															</div>

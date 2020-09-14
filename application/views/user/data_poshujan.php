@@ -39,11 +39,10 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Home</a>
 							</li>
-
 							<li>
-								<a href="<?= base_url ('dataasetsc') ;?>">Persediaan Suku Cadang</a>
+								<a href="<?= base_url ('dataasetsc') ;?>">Pos Hujan Kerjasama</a>
 							</li>
-							<li class="active">Aset Masuk </li>
+							<li class="active">Pos Hujan Kerjasama</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -87,22 +86,46 @@
 						</div><!-- /.ace-settings-container -->
 
 						<!-- /section:settings.box -->
-						
-								<div class="row">
+						<div class="row">
 									<div class="col-xs-12">
-										   <?= $this->session->flashdata('message'); ?>
-											<?= $this->session->flashdata('pesan'); ?>
 
-										<h3 class="header smaller lighter blue">Aset Masuk (Suku Cadang)</h3>
+          							<?= $this->session->flashdata('message'); ?>
+          							<?= $this->session->flashdata('pesan'); ?>
+
+										<div class="widget-box transparent">
+											<div class="widget-header widget-header-large">
+												<h3 class="widget-title grey lighter">
+													<i class="ace-icon "></i>
+													Detail Pos Hujan Kerjasama
+												</h3>
+
+												<!-- #section:pages/invoice.info -->
+												<div class="widget-toolbar no-border invoice-info">
+													<span class="invoice-info-label">Laporan</span>
+													<span class="red">Bulanan</span>
+
+													<br />
+													<span class="invoice-info-label">Tanggal</span>
+													<span class="blue"><?= tanggal()?></span>
+												</div>
+
+												<div class="widget-toolbar hidden-480">
+													<a href="<?= base_url('laporan/createpdf')?>">
+														<i class="ace-icon fa fa-print"></i>
+													</a>
+												</div>
+
+												<!-- /section:pages/invoice.info -->
+											</div>
 										<div class="pull-right tableTools-container"></div>
 										</div>
 										<div class="col-auto">
-							                <a href="<?= base_url('addasetmasuksc'); ?>" class="btn btn-success">
+							                <a href="<?= base_url('dataasetsc/tambah'); ?>" class="btn btn-success">
 							                    <span class="icon">
 							                        <i class="fa fa-plus"></i>
 							                    </span>
 							                    <span class="text">
-							                        Input Aset Masuk
+							                       Tambah Pos 
 							                    </span>
 							                </a>
 							            </div>
@@ -110,26 +133,29 @@
 										<div class="clearfix">
 
 										<div class="table-header">
-											Historis Aset Masuk
+											Pos Hujan Kerjasama
 										</div>
-
 
 										<!-- div.table-responsive -->
 
 										<!-- div.dataTables_borderWrap -->
-										<div>
+										<div class="table-responsive">
 											<table id="example" class="table table-striped table-bordered table-hover">
 												<thead>
 													<tr>
 														
-														<th>No. </th>
-									                    <th>No Transaksi</th>
-									                    <th>Tanggal Masuk</th>
-									                    <th>Nama</th>
-									                    <th>Merk</th>
-									                    <th>Kategori</th>
-									                    <th>Jumlah Masuk</th>
-									                    <th>Petugas</th>
+														<th>No</th>
+														<th>STA ID</th>
+														<th>Pos Hujan</th>
+														<th>Wilayah</th>
+														<th>Pengamat</th>
+														<th>No. HP</th>
+														<th>Koordinator</th>
+														<th>Keterangan</th>
+													
+														
+														
+														
 														<th >Opsi</th>
 
 													
@@ -137,35 +163,76 @@
 												</thead>
 
 												<tbody>
-
 													<tr>
-													
-									               <?php $i = 1;  
-									                
-									                    foreach ($asetmasuk as $bm) :
-									                        ?>
-														
+														 <?php $i = 1;  ?>
+				  											<?php foreach ($hujans as $a) :?>
 														
 
-														 <td><?= $i;?></td>
-							                            <td><?= $bm['id_aset_masuk']; ?></td>
-							                            <td><?= $bm['tanggal_masuk']; ?></td>
-							                            <td><?= $bm['nama_brg']; ?></td>
-							                            <td><?= $bm['merk']; ?></td>
-							                            <td><?= $bm['nama_type']; ?></td>
-							                            <td><?= $bm['jumlah_masuk']; ?></td>
-							                            <td><?= $bm['name']; ?></td>
+														<td>
+															<?= $i;?>
+														</td>
+														<td nowrap><?= $a['id_sta'];?></td>
+														 
+															
+													      <td><?= $a['nama_pos'];?></td>
+													      <td style="text-align: center;" ><?= $a['wilayah'];?></td>
+													      <td style="text-align: center;" ><?= $a['pengamat'];?></td>
+													      <td style="text-align: center;"><?= $a['no_hp'];?></td>
+													       <td style="text-align: center;"><?= $a['koor'];?></td>
+													      <td style="text-align: center;"><?= $a['keterangan'];?></td>
+													    
+													     
+													    
 														<td>
 															<div class="hidden-sm hidden-xs action-buttons">
+
+																<a class="purple" href="" class="badge badge-success">
+																	<i class="ace-icon fa fa-eye bigger-130"></i>
+																</a>
 																
 
-																
-																<a class="red" href="<?= base_url('asetmasuk/delete/') . $bm['id_aset_masuk'] ?>" onclick="javascript: return confirm('Apakah yakin menghapus')">
+																<a class="green" href="" class="badge badge-success">
+																	<i class="ace-icon fa fa-pencil bigger-130"></i>
+																</a>
+
+																<a class="red" href=""  onclick="javascript: return confirm('Apakah yakin menghapus')" class="badge badge-danger">
 																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
 																</a>
 															</div>
 
-															
+															<div class="hidden-md hidden-lg">
+																<div class="inline pos-rel">
+																	<button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
+																		<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
+																	</button>
+
+																	<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+																		<li>
+																			<a href=""  class="tooltip-success" data-rel="tooltip" title="Edit">
+																				<span class="purple">
+																					<i class="ace-icon fa fa-eye bigger-120"></i>
+																				</span>
+																			</a>
+																		</li>
+
+																		<li>
+																			<a href=""  class="tooltip-success" data-rel="tooltip" title="Edit">
+																				<span class="green">
+																					<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+																				</span>
+																			</a>
+																		</li>
+
+																		<li>
+																			<a href=""  class="tooltip-error" data-rel="tooltip" title="Delete">
+																				<span class="red">
+																					<i class="ace-icon fa fa-trash-o bigger-120"></i>
+																				</span>
+																			</a>
+																		</li>
+																	</ul>
+																</div>
+															</div>
 														</td>
 													</tr>
 
@@ -174,7 +241,7 @@
 
 														
 
-														 <?php $i++; ?>
+														<?php $i++; ?>
 													<?php endforeach; ?>
 												</tbody>
 											</table>
@@ -239,25 +306,20 @@
 		</div><!-- /.main-container -->
 
 		<!-- basic scripts -->
-
-		<!--[if !IE]> -->
+	<!--[i	<!--[if !IE]> -->
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='<?= base_url('assets/') ;?>js/jquery.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='<?= base_url('assets/'); ?>js/jquery.js'>"+"<"+"/script>");
 		</script>
-
+	
 
 		<!-- <![endif]-->
-
-		<!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='../assets/js/jquery1x.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
 		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='<?= base_url('assets/') ;?>js/jquery.mobile.custom.js'>"+"<"+"/script>");
+			if('ontouchstart' in document.documentElement) document.write("<script src='<?= base_url('assets/'); ?>js/jquery.mobile.custom.js'>"+"<"+"/script>");
 		</script>
-		<script src="<?= base_url('assets/') ;?>js/bootstrap.js"></script>
-		
+		<script src="<?= base_url('assets/'); ?>js/bootstrap.js"></script>
+
+
+
 
 		<!-- page specific plugin scripts -->
 		<script src="<?= base_url('assets/') ;?>js/dataTables/jquery.dataTables.js"></script>
@@ -265,19 +327,14 @@
 		<script src="<?= base_url('assets/') ;?>js/dataTables/extensions/TableTools/js/dataTables.tableTools.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/dataTables/extensions/ColVis/js/dataTables.colVis.js"></script>
 
-
-
-
-
 		<!-- ace scripts -->
-
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.scroller.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.colorpicker.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.fileinput.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.typeahead.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.wysiwyg.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.spinner.js"></script>
-		<script src="<?= base_url('assets/') ;?>js/ace/elements.treeview.js"></script>
+		<script src="<?= base_url('assets/') ;?>s/ace/elements.treeview.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.wizard.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.aside.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/ace.js"></script>
@@ -298,14 +355,8 @@
 			$(document).ready(function() {
    			 $('#example').DataTable();
 				} );
-
 		</script>
-		<script type="text/javascript">
-
-
-
-		</script>
-
+		
 		<!-- the following scripts are used in demo only for onpage help and you don't need them -->
 		<link rel="stylesheet" href="<?= base_url('assets/') ;?>css/ace.onpage-help.css" >
 		<link rel="stylesheet" href="<?= base_url('assets/') ;?>docs/assets/js/themes/sunburst.css" >
@@ -318,6 +369,5 @@
 		<script src="<?= base_url('assets/') ;?>docs/assets/js/language/html.js"></script>
 		<script src="<?= base_url('assets/') ;?>docs/assets/js/language/css.js"></script>
 		<script src="<?= base_url('assets/') ;?>docs/assets/js/language/javascript.js"></script>
-
 	</body>
 </html>

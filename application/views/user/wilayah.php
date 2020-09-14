@@ -41,9 +41,13 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('detailbrg') ;?>">Persediaan Aset</a>
+								<a href="<?= base_url ('detailbrg') ;?>">Persediaan Pias</a>
 							</li>
-							<li class="active">Daftar Aset</li>
+
+							<li>
+								<a href="<?= base_url('barangmasuk') ;?>">Barang Masuk</a>
+							</li>
+							<li class="active">Input Barang Masuk</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -62,10 +66,9 @@
 					<!-- /section:basics/content.breadcrumbs -->
 						<div class="page-header">
 							<h1>
-								Daftar Aset
+								Form 
 								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									Edit Aset
+									
 								</small>
 							</h1>
 						</div><!-- /.page-header -->
@@ -74,80 +77,63 @@
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
 								<div class="form-horizontal">
-									 <?= $this->session->flashdata('pesan'); ?>
-                						<?= form_open('', [], ['stok' => 0, 'kode_brg' => $barang['kode_brg']]); ?>
+									<?= $this->session->flashdata('pesan'); ?>
+		                				<?php $user = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();?>
+		                				
 									<!-- #section:elements.form -->
 									
 
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="nama_brg">Nama Aset</label>
+									
+										
+									
 
-										<div class="col-sm-3">
-											<input value="<?= set_value('nama_brg', $barang['nama_brg']); ?>" name="nama_brg" id="nama_brg" type="text" class="form-control" placeholder="Nama Barang...">
-                        				<?= form_error('nama_brg', '<small class="text-danger">', '</small>'); ?>
+									<!-- /section:elements.form -->
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="kabupaten"> Kabupaten </label>
+
+										<div class="col-sm-4">
+											 <div class="input-group">
+											<select name="kabupaten" id="kabupaten" class="custom-select">
+												<option value="" selected disabled >Pilih Kabupaten</option>
+
+												 <?php
+							                        foreach($kabupaten as $data){ // Lakukan looping pada variabel siswa dari controller
+							                            echo "<option value='".$data->id_kab."'>".$data->kab."</option>";
+							                        }
+							                    ?>
+												 				
+											</select>									
+										</div>
+										
 										</div>
 									</div>
 
+
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="kecamatan"> Kecamatan </label>
+
+										<div class="col-sm-4">
+											 <div class="input-group">
+											<select name="kecamatan" id="kecamatan" class="custom-select">
+												<option value="" selected disabled >Pilih Kecamatan</option>
+
+												 				
+											</select>									
+										</div>
+										
+										</div>
+									</div>
+
+
 									
 
-								<div class="row form-group">
-	                    			
-                    				<label class="col-sm-3 control-label no-padding-right" for="type_id">Kategori Aset</label>
-                   						 <div class="col-md-9">
-                    						    <div class="input-group">
-                            						<select name="type_id" id="type_id" class="custom-select">
-                             						   <option value="" selected disabled>Pilih Kategori Barang</option>
-                              								   <?php foreach ($type as $j) : ?>
-                                    				<option <?= $barang['type_id'] == $j['id_type'] ? 'selected' : ''; ?> <?= set_select('type_id', $j['id_type']) ?> value="<?= $j['id_type'] ?>"><?= $j['nama_type'] ?></option>
-                               						<?php endforeach; ?>
-                           								 </select>
-                            						<span >	
-                               					 <a class="btn btn-success" href="<?= base_url('user/add_jenis'); ?>"><i class="fa fa-plus"></i></a>
-                            				</span>
-                        				</div>
-                       						 <?= form_error('type_id', '<small class="text-danger">', '</small>'); ?>
-                   						 </div>
-               						 </div>
-
-               						  <div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right"  for="merk">Merk </label>
-				                   			<div class="col-md-3">
-				                        		<input value="<?= set_value('merk', $barang['merk']); ?>" name="merk" id="merk" type="text" class="form-control" placeholder="Nomor Serial...">
-				                        			<?= form_error('merk',  '<small class="text-danger">', '</small>'); ?>
-											</div>
-									</div>
-
-
-               						  <div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right"  for="no_seri">Serial Number </label>
-				                   			<div class="col-md-3">
-				                        		<input value="<?= set_value('no_seri', $barang['no_seri']); ?>" name="no_seri" id="no_seri" type="text" class="form-control" placeholder="Nomor Serial...">
-				                        			<?= form_error('no_seri',  '<small class="text-danger">', '</small>'); ?>
-											</div>
-									</div>
-
-
-
-               						 <div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right"  for="stok">Stok </label>
-				                   			<div class="col-md-3">
-				                        		 <input readonly value="<?php echo $barang['stok'] ?>" name="stok" id="stok"  class="form-control" >
-                        					<?= form_error('stok', '<small class="text-danger">', '</small>'); ?>
-											</div>
-									</div>
-
-               						
-
-               						 <div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right"  for="gambar">Gambar</label>
-				                   			<div class="col-md-3">
-				                   				<img src="<?= base_url('assets/img/upload/'). $barang ['gambar'];?>" class="img-thumbnail">
-				                        		<input  name="gambar" id="gambar" type="file" class="form-control" placeholder="">
-				                        			<?= form_error('gambar',  '<small class="text-danger">', '</small>'); ?>
-											</div>
-									</div>
-									<!-- /section:elements.form -->
 									
+									
+
 									<div class="clearfix form-actions">
 										<div class="col-md-offset-3 col-md-9">
 											<button class="btn btn-info" type="submit">
@@ -155,7 +141,11 @@
 												Submit
 											</button>
 
-											
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												Reset
+											</button>
 										</div>
 									</div>
 								
@@ -165,7 +155,7 @@
 										</div><!-- /.modal-content -->
 									</div><!-- /.modal-dialog -->
 								</div><!-- PAGE CONTENT ENDS -->
-								<?= form_close(); ?>
+								 <?= form_close(); ?>
 							</div><!-- /.col -->
 						</div><!-- /.row -->
 					</div><!-- /.page-content -->
@@ -204,7 +194,17 @@
 
 						&nbsp; &nbsp;
 						<span class="action-buttons">
-							
+							<a href="#">
+								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+							</a>
 						</span>
 					</div>
 
@@ -283,8 +283,41 @@
 		<script src="<?= base_url('assets/'); ?>js/ace/ace.searchbox-autocomplete.js"></script>
 
 		<!-- inline scripts related to this page -->
+		<script>
+        $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di load)
+            // Kita sembunyikan dulu untuk loadingnya
+            $("#loading").hide();
+ 
+            $("#kabupaten").change(function(){ // Ketika user mengganti atau memilih data provinsi
+                $("#kecamatan").hide(); // Sembunyikan dulu combobox kota nya
+                $("#loading").show(); // Tampilkan loadingnya
+ 
+                $.ajax({
+                    type: "POST", // Method pengiriman data bisa dengan GET atau POST
+                    url: "<?php echo base_url("wilayah/list_kec"); ?>", // Isi dengan url/path file php yang dituju
+                    data: {kab_id : $("#kabupaten").val()}, // data yang akan dikirim ke file yang dituju
+                    dataType: "json",
+                    beforeSend: function(e) {
+                        if(e && e.overrideMimeType) {
+                                e.overrideMimeType("application/json;charset=UTF-8");
+                        }
+                    },
+                    success: function(response){ // Ketika proses pengiriman berhasil
+                        $("#loading").hide(); // Sembunyikan loadingnya
+ 
+                        // set isi dari combobox kota
+                        // lalu munculkan kembali combobox kotanya
+                        $("#kecamatan").html(response.list_kec).show();
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) { // Ketika ada error
+                        alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
+                    }
+                });
+            });
+        });
+    </script>
 		 <script type="text/javascript">
-        let hal = '<?= $this->uri->segment(1); ?>';
+        let hal = '<?= $this->uri->segment(3); ?>';
 
         let satuan = $('#satuan');
         let jenis = $('#jenis');
@@ -293,7 +326,7 @@
         let jumlah = hal == 'barangmasuk' ? $('#jumlah_masuk') : $('#jumlah_keluar');
 
         $(document).on('change', '#barang_id', function() {
-            let url = '<?= base_url('barang/getstok/'); ?>' + this.value;
+            let url = '<?= base_url('detailbrg/getstok/'); ?>' + this.value;
             $.getJSON(url, function(data) {
                 satuan.html(data.nama_satuan);
                 jenis.val(data.nama_jenis);
@@ -712,8 +745,8 @@
 		</script>
 
 		<!-- the following scripts are used in demo only for onpage help and you don't need them -->
-		<link rel="stylesheet" href="<?= base_url('assets/'); ?>css/ace.onpage-help.css" />
-		<link rel="stylesheet" href="<?= base_url('assets/'); ?>docs/assets/js/themes/sunburst.css" />
+		<link rel="stylesheet" href="<?= base_url('assets/'); ?>css/ace.onpage-help.css" >
+		<link rel="stylesheet" href="<?= base_url('assets/'); ?>docs/assets/js/themes/sunburst.css" >
 
 		<script type="text/javascript"> ace.vars['base'] = '..'; </script>
 		<script src="<?= base_url('assets/'); ?>js/ace/elements.onpage-help.js"></script>

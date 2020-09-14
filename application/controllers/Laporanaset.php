@@ -55,7 +55,7 @@ class Laporanaset extends CI_Controller
   private function _cetak($data, $table_, $tanggal)
     {
         $this->load->library('CustomPDF');
-        $table = $table_ == 'aset_masuk' ? 'Aset Masuk' : 'Aset Keluar';
+        $table = $table_ == 'asetsc_masuk' ? 'Aset Masuk' : 'Aset Keluar';
 
         $pdf = new FPDF();
         $pdf->AddPage('L', 'A5');
@@ -67,12 +67,12 @@ class Laporanaset extends CI_Controller
 
         $pdf->SetFont('Arial', 'B', 10);
 
-        if ($table_ == 'aset_masuk') :
+        if ($table_ == 'asetsc_masuk') :
             $pdf->Cell(10, 7, 'No.', 1, 0, 'C');
             $pdf->Cell(25, 7, 'Tgl Masuk', 1, 0, 'C');
             $pdf->Cell(35, 7, 'ID Transaksi', 1, 0, 'C');
             $pdf->Cell(45, 7, 'Nama Aset', 1, 0, 'C');
-            $pdf->Cell(35, 7, 'Type', 1, 0, 'C');
+            $pdf->Cell(35, 7, 'Merk', 1, 0, 'C');
             $pdf->Cell(20, 7, 'Petugas', 1, 0, 'C');
             $pdf->Cell(25, 7, 'Jumlah', 1, 0, 'C');
             $pdf->Ln();
@@ -84,7 +84,7 @@ class Laporanaset extends CI_Controller
                 $pdf->Cell(25, 7, $d['tanggal_masuk'], 1, 0, 'C');
                 $pdf->Cell(35, 7, $d['id_aset_masuk'], 1, 0, 'C');
                 $pdf->Cell(45, 7, $d['nama_brg'], 1, 0, 'L');
-                $pdf->Cell(35, 7, $d['nama_type'], 1, 0, 'L');
+                $pdf->Cell(35, 7, $d['merk'], 1, 0, 'L');
                 $pdf->Cell(20, 7, $d['name'], 1, 0, 'L');
                 $pdf->Cell(25, 7, $d['jumlah_masuk'], 1, 0, 'C');
                 $pdf->Ln();
@@ -93,7 +93,7 @@ class Laporanaset extends CI_Controller
             $pdf->Cell(25, 7, 'Tgl Keluar', 1, 0, 'C');
             $pdf->Cell(35, 7, 'ID Transaksi', 1, 0, 'C');
             $pdf->Cell(45, 7, 'Nama Barang', 1, 0, 'C');
-            $pdf->Cell(35, 7, 'Type', 1, 0, 'C');
+            $pdf->Cell(35, 7, 'Merk', 1, 0, 'C');
             $pdf->Cell(20, 7, 'Petugas', 1, 0, 'C');
             $pdf->Cell(25, 7, 'Jumlah', 1, 0, 'C');
             $pdf->Ln();
@@ -105,7 +105,7 @@ class Laporanaset extends CI_Controller
                 $pdf->Cell(25, 7, $d['tanggal_keluar'], 1, 0, 'C');
                 $pdf->Cell(35, 7, $d['id_aset_keluar'], 1, 0, 'C');
                 $pdf->Cell(45, 7, $d['nama_brg'], 1, 0, 'L');
-                $pdf->Cell(35, 7, $d['nama_type'], 1, 0, 'L');
+                $pdf->Cell(35, 7, $d['merk'], 1, 0, 'L');
                 $pdf->Cell(20, 7, $d['name'], 1, 0, 'L');
                 $pdf->Cell(25, 7, $d['jumlah_keluar'] , 1, 0, 'C');
                 $pdf->Ln();

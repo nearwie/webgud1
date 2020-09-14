@@ -126,9 +126,12 @@
 									                    <th>No Transaksi</th>
 									                    <th>Tanggal Keluar</th>
 									                    <th>Nama</th>
-									                    <th>Type</th>
+									                    <th>Merk</th>
+									                    <th>Kategori</th>
 									                    <th>Jumlah Keluar</th>
-									                    <th>Petugas</th>
+									                    <th>Tujuan/Kegiatan</th>
+									                    <th>Petugas 1</th>
+									                    <th>User</th>
 														<th >Opsi</th>
 
 													
@@ -150,8 +153,11 @@
 							                            <td><?= $ak['id_aset_keluar']; ?></td>
 							                            <td><?= $ak['tanggal_keluar']; ?></td>
 							                            <td><?= $ak['nama_brg']; ?></td>
+							                            <td><?= $ak['merk']; ?></td>
 							                            <td><?= $ak['nama_type']; ?></td>
 							                            <td><?= $ak['jumlah_keluar']; ?></td>
+							                            <td><?= $ak['tujuan']; ?></td>
+							                             <td><?= $ak['petugas_1']; ?></td>
 							                            <td><?= $ak['name']; ?></td>
 														<td>
 															<div class="hidden-sm hidden-xs action-buttons">

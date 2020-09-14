@@ -349,10 +349,61 @@
 						</ul>
 					</li>
 
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-cloud"></i>
+							<span class="menu-text">
+								Pos Hujan
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							
+							
+
+							<li class="">
+								<a href="<?= base_url('riwayatpos') ;?>">
+									<i class="menu-icon fa fa-caret-right "></i>
+									Riwayat Kegiatan
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="<?= base_url('poshujan') ;?>">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Data Pos Hujan
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							
+
+							<li class="">
+								
+								
+							</li>
+						</ul>
+					</li>
+
+
+
 
 
 					
-					
+					<li class="">
+						<a href="<?= base_url('wilayah') ;?>">
+							<i class="menu-icon fa fa-globe"></i>
+							<span class="menu-text"> Wilayah </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
 
 					<li class="">
 						<a href="<?= base_url('profile') ;?>">

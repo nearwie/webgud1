@@ -31,6 +31,7 @@ class  Addasetkeluarsc extends CI_Controller
             'required' => 'Kolom Nama Aset Keluar wajib diisi' 
         ]);
 
+        
         $input = $this->input->post('aset_id', true);
         $stok = $this->asetscm->get('tbl_brgsc', ['kode_brg' => $input])['stok']; 
         $stok_valid = $stok + 1;
@@ -45,6 +46,7 @@ class  Addasetkeluarsc extends CI_Controller
         if ($this->form_validation->run() == false) {
             $data['title'] = "Input Aset Keluar";
             $data['aset'] = $this->asetscm->get('tbl_brgsc', null);
+            $data['posid'] = $this->asetscm->get('tbl_poshujan', null);
              $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
 
             // Mendapatkan dan men-generate kode transaksi barang masuk

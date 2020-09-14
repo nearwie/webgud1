@@ -39,7 +39,7 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Home</a>
 							</li>
-<li>
+							<li>
 								<a href="<?= base_url ('dataasetsc') ;?>">Persediaan Suku Cadang</a>
 							</li>
 							<li class="active">Add Aset Suku Cadang </li>
@@ -88,19 +88,28 @@
 										<label class="col-sm-3 control-label no-padding-right" for="nama_brg">Nama Aset</label>
 
 										<div class="col-sm-3">
-											<input name="nama_brg" id="nama_brg" type="text" class="form-control" placeholder="Nama Barang...">
+											<input name="nama_brg" id="nama_brg" type="text" class="form-control" placeholder="Nama Aset...">
                         				<?= form_error('nama_brg', '<small class="text-danger">', '</small>'); ?>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="tahun">Tahun</label>
+
+										<div class="col-sm-3">
+											<input name="tahun" id="tahun" type="text" class="form-control" placeholder="Tahun...">
+                        				<?= form_error('tahun', '<small class="text-danger">', '</small>'); ?>
 										</div>
 									</div>
 
 									
 								<div class="row form-group">
 	                    			
-                    				<label class="col-sm-3 control-label no-padding-right" for="type_id">Type Aset</label>
-                   						 <div class="col-md-6">
+                    				<label class="col-sm-3 control-label no-padding-right" for="type_id">Kategori Aset</label>
+                   						 <div class="col-md-7">
                     						    <div class="input-group">
                             						<select name="type_id" id="type_id" class="custom-select">
-                             						   <option value="" selected disabled>Pilih Type Aset</option>
+                             						   <option value="" selected disabled>Pilih Kategori Aset</option>
                               								  <?php foreach ($type as $j) : ?>
                                     						 <option <?= set_select('type_id', $j['id_type']) ?> value="<?= $j['id_type'] ?>"><?= $j['nama_type'] ?></option>
                                 								<?php endforeach; ?>
@@ -120,6 +129,13 @@
 				                        			<?= form_error('merk',  '<small class="text-danger">', '</small>'); ?>
 											</div>
 									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right"  for="model">Model</label>
+				                   			<div class="col-md-3">
+				                        		<input  name="model" id="model" type="text" class="form-control" placeholder="Model...">
+				                        			<?= form_error('model',  '<small class="text-danger">', '</small>'); ?>
+											</div>
+									</div>
 
 
 									<div class="form-group">
@@ -131,11 +147,28 @@
 									</div>
 
 									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right"  for="lokasi">Lokasi</label>
+				                   			<div class="col-md-3">
+				                        		<input  name="lokasi" id="lokasi" type="text" class="form-control" placeholder="Lokasi...">
+				                        			<?= form_error('lokasi',  '<small class="text-danger">', '</small>'); ?>
+											</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right"  for="ket">Keterangan</label>
+				                   			<div class="col-md-3">
+				                        		<input  name="ket" id="ket" type="text" class="form-control" placeholder="Keterangan...">
+				                        			<?= form_error('ket',  '<small class="text-danger">', '</small>'); ?>
+											</div>
+									</div>
+
+									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right"  for="gambar">Gambar</label>
 				                   			<div class="col-md-3">
 				                        		<input  name="gambar" id="gambar" type="file" class="form-control" placeholder="">
 				                        			<?= form_error('gambar',  '<small class="text-danger">', '</small>'); ?>
+				                        			<code> (Biarkan kosong jika tidak ada) </code>
 											</div>
+
 									</div>
 									<!-- /section:elements.form -->
 									

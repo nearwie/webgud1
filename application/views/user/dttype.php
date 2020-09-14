@@ -43,7 +43,7 @@
 							<li>
 								<a href="<?= base_url ('detailbrg') ;?>">Data Aset</a>
 							</li>
-							<li class="active">Daftar Type Aset</li>
+							<li class="active">Daftar Kategori Aset</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -102,7 +102,7 @@
 							                        <i class="fa fa-plus"></i>
 							                    </span>
 							                    <span class="text">
-							                       Tambah Type
+							                       Tambah Kategori
 							                    </span>
 							                </a>
 							            </div>
@@ -110,7 +110,7 @@
 										<div class="clearfix">
 
 										<div class="table-header">
-											Daftar Type Aset
+											Daftar Kategori Aset
 										</div>
 
 										<!-- div.table-responsive -->
@@ -122,7 +122,7 @@
 													<tr>
 														
 														<th >No</th>
-														<th >Nama Type</th>
+														<th >Nama Kategori</th>
 														<th >Opsi</th>
 
 													

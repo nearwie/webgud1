@@ -132,7 +132,7 @@
 									<div class="space-4"></div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="type_id"> Type </label>
+										<label class="col-sm-3 control-label no-padding-right" for="type_id"> Kategori </label>
 
 										<div class="col-sm-9">
 											<input readonly="" type="text" class="col-xs-10 col-sm-5" id="type_id" >

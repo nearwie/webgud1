@@ -16,7 +16,7 @@ public function getAsetMasuk($limit = null, $kode_brg = null, $range = null)
         $this->db->select('*');
         $this->db->join('user u', 'bm.user_id = u.id');
       
-        $this->db->join('tbl_brg b', 'bm.aset_id = b.kode_brg');
+        $this->db->join('tbl_brgsc b', 'bm.aset_id = b.kode_brg');
        
         $this->db->join('tbl_type j', 'b.type_id = j.id_type');
         if ($limit != null) {
@@ -40,7 +40,7 @@ public function getAsetKeluar($limit = null, $kode_brg = null, $range = null)
     {
         $this->db->select('*');
         $this->db->join('user u', 'bk.user_id = u.id');
-        $this->db->join('tbl_brg b', 'bk.aset_id = b.kode_brg');
+        $this->db->join('tbl_brgsc b', 'bk.aset_id = b.kode_brg');
        
         $this->db->join('tbl_type j', 'b.type_id = j.id_type');
         if ($limit != null) {
@@ -63,7 +63,7 @@ public function getAsetKeluar($limit = null, $kode_brg = null, $range = null)
     {
         $this->db->join('tbl_type j', 'b.type_id = j.id_type');
         $this->db->order_by('kode_brg');
-        return $this->db->get('tbl_brg b')->result_array();
+        return $this->db->get('tbl_brgsc b')->result_array();
     }
 
     

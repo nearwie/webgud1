@@ -39,6 +39,19 @@ class Dataasetsc extends CI_Controller
 		
 	}
 
+	  public function detail()
+    {    $data['title'] = 'DetailSuku Cadang';        
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
+    	$this->load->model('Datasetsc_model');
+        $id = $this->uri->segment(3);
+         $data ['asetsc'] = $this->Datasetsc_model->get_barang_by_id($id)->row_array();
+
+        $this->load->view('user/detail_asetsc', $data);
+         
+    }
+
+
+
 
 	public function tambah()
     {
@@ -47,17 +60,30 @@ class Dataasetsc extends CI_Controller
         
 	
 		$this->form_validation->set_rules('nama_brg', 'nama_brg', 'required', [
-			'required' => 'Kolom Nama Barang wajib diisi' 
+			'required' => 'Kolom Nama Aset wajib diisi' 
+		]);
+		$this->form_validation->set_rules('tahun', 'tahun', 'required', [
+			'required' => 'Kolom Tahun wajib diisi' 
 		]);
 		$this->form_validation->set_rules('type_id', 'type', 'required', [
-			'required' => 'Kolom Type Barang wajib diisi'
+			'required' => 'Kolom Kategori Barang wajib diisi'
 		]);
 		$this->form_validation->set_rules('merk', 'merk', 'required', [
 			'required' => 'Kolom Merk wajib diisi'
 		]);
+		$this->form_validation->set_rules('model', 'Model', 'required', [
+			'required' => 'Kolom Model wajib diisi'
+		]);
 		$this->form_validation->set_rules('no_seri', 'no_seri', 'required', [
 			'required' => 'Kolom Serial Number  wajib diisi'
 		]);
+		$this->form_validation->set_rules('lokasi', 'lokasi', 'required', [
+			'required' => 'Kolom Lokasi  wajib diisi'
+		]);
+		$this->form_validation->set_rules('ket', 'Keterangan', 'required', [
+			'required' => 'Kolom Keterangan wajib diisi'
+		]);
+		
 		
 		
  
@@ -83,10 +109,14 @@ class Dataasetsc extends CI_Controller
         else
         {	$kode_brg	 = $this->input->post('kode_brg');
 			$nama_brg	 = $this->input->post('nama_brg');
+			$tahun		 = $this->input->post('tahun');
 			$type_id	 = $this->input->post('type_id');
 			$merk 		= $this->input->post('merk');
+			$model		= $this->input->post('model');
 			$no_seri 	= $this->input->post('no_seri');
 			$stok 	= $this->input->post('stok');
+			$lokasi 	= $this->input->post('lokasi');
+			$ket 	= $this->input->post('ket');
 			$gambar 	= $_FILES['gambar']['name'];
 
 			if($gambar=''){}else{
@@ -105,11 +135,16 @@ class Dataasetsc extends CI_Controller
 			$data = [
 				'kode_brg' => $kode_brg,
 				'nama_brg' => $nama_brg,
+				'tahun' => $tahun,
 				'type_id' => $type_id,
 				'merk' => $merk,
+				'model' => $model,
 				'no_seri' => $no_seri,
 				'stok' => 0,
+				'lokasi' => $lokasi,
+				'ket' => $ket,
 				'gambar' => $gambar,
+
 
 			];
 			
@@ -143,7 +178,7 @@ class Dataasetsc extends CI_Controller
 		$this->form_validation->set_rules('nama_brg', 'nama_brg', 'required', [
 			'required' => 'Kolom Nama Aset wajib diisi' 
 		]);
-		$this->form_validation->set_rules('type_id', 'type', 'required', [
+		$this->form_validation->set_rules('type_id', 'Kategori', 'required', [
 			'required' => 'Kolom Type Aset wajib diisi'
 		]);
 		$this->form_validation->set_rules('merk', 'merk', 'required', [

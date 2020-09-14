@@ -65,7 +65,7 @@
 								Daftar Aset
 								<small>
 									<i class="ace-icon fa fa-angle-double-right"></i>
-									Edit Type Aset
+									Edit Kategori Aset
 								</small>
 							</h1>
 						</div><!-- /.page-header -->
@@ -78,7 +78,7 @@
                 					<?= form_open(); ?>
 									<!-- #section:elements.form -->
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="nama_type">Nama Type</label>
+										<label class="col-sm-3 control-label no-padding-right" for="nama_type">Nama Kategori</label>
 
 										<div class="col-sm-4">
 											  <input type="hidden" name="id_type" value="<?php echo $a['id_type'] ?>">

@@ -128,7 +128,7 @@
 											</div>
 
 											<div class="infobox-data">
-												<span class="infobox-data-number">8</span>
+												<span class="infobox-data-number"><?= $pengguna; ?></span>
 												<div class="infobox-content">Total User</div>
 											</div>
 											

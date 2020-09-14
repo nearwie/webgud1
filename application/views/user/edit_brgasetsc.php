@@ -88,15 +88,24 @@
 										</div>
 									</div>
 
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="tahun">Tahun</label>
+
+										<div class="col-sm-3">
+											<input value="<?= set_value('tahun', $barangsc['tahun']); ?>" name="tahun" id="tahun" type="text" class="form-control" >
+                        				<?= form_error('tahun', '<small class="text-danger">', '</small>'); ?>
+										</div>
+									</div>
+
 									
 
 								<div class="row form-group">
 	                    			
-                    				<label class="col-sm-3 control-label no-padding-right" for="type_id">Type Aset</label>
+                    				<label class="col-sm-3 control-label no-padding-right" for="type_id">Kategori Aset</label>
                    						 <div class="col-md-9">
                     						    <div class="input-group">
                             						<select name="type_id" id="type_id" class="custom-select">
-                             						   <option value="" selected disabled>Pilih Type Barang</option>
+                             						   <option value="" selected disabled>Pilih Kategori Aset</option>
                               								   <?php foreach ($type as $j) : ?>
                                     				<option <?= $barangsc['type_id'] == $j['id_type'] ? 'selected' : ''; ?> <?= set_select('type_id', $j['id_type']) ?> value="<?= $j['id_type'] ?>"><?= $j['nama_type'] ?></option>
                                						<?php endforeach; ?>
@@ -112,10 +121,20 @@
                						  <div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right"  for="merk">Merk </label>
 				                   			<div class="col-md-3">
-				                        		<input value="<?= set_value('merk', $barangsc['merk']); ?>" name="merk" id="merk" type="text" class="form-control" placeholder="Nomor Serial...">
+				                        		<input value="<?= set_value('merk', $barangsc['merk']); ?>" name="merk" id="merk" type="text" class="form-control" >
 				                        			<?= form_error('merk',  '<small class="text-danger">', '</small>'); ?>
 											</div>
 									</div>
+
+									 <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right"  for="model">Model </label>
+				                   			<div class="col-md-3">
+				                        		<input value="<?= set_value('model', $barangsc['model']); ?>" name="model" id="model" type="text" class="form-control" >
+				                        			<?= form_error('model',  '<small class="text-danger">', '</small>'); ?>
+											</div>
+									</div>
+
+
 
 
                						  <div class="form-group">
@@ -135,6 +154,23 @@
                         					<?= form_error('stok', '<small class="text-danger">', '</small>'); ?>
 											</div>
 									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right"  for="lokasi">Lokasi </label>
+				                   			<div class="col-md-3">
+				                        		<input value="<?= set_value('lokasi', $barangsc['lokasi']); ?>" name="lokasi" id="lokasi" type="text" class="form-control" >
+				                        			<?= form_error('lokasi',  '<small class="text-danger">', '</small>'); ?>
+											</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right"  for="ket">Keterangan </label>
+				                   			<div class="col-md-3">
+				                        		<input value="<?= set_value('ket', $barangsc['ket']); ?>" name="ket" id="ket" type="text" class="form-control" >
+				                        			<?= form_error('ket',  '<small class="text-danger">', '</small>'); ?>
+											</div>
+									</div>
+
+
 
                						
 

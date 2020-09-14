@@ -15,6 +15,7 @@ class Barang_model extends CI_Model
         return $this->db->count_all($table);
     }
 
+
     public function sum($table, $field)
     {
         $this->db->select_sum($field);

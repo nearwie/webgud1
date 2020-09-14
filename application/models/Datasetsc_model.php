@@ -18,6 +18,7 @@ class Datasetsc_model extends CI_Model
         return $this->db->get('tbl_brgsc b')->result_array();
     }
 
+   
      public function get($table, $data = null, $where = null)
     {
         if ($data != null) {
@@ -76,6 +77,19 @@ public function get_brg_by_id($id = 0)
     {
         $this->db->where('kode_brg', $id);
         return $this->db->delete('tbl_brgsc');
+    }
+
+
+    public function get_barang_by_id($id=0)
+    {
+        
+        $this->db->select('*');
+        $this->db->from('tbl_brgsc b');
+         
+         $this->db->join('tbl_type j', 'b.type_id = j.id_type');
+        $this->db->where('kode_brg',$id);
+        return $this->db->get();
+    
     }
 
 

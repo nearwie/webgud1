@@ -149,7 +149,7 @@
 														<th>Kode</th>
 														<th>Gambar</th>
 														<th>Nama</th>
-														<th>Type</th>
+														<th>Kategori</th>
 														<th>Merk</th>
 														<th>S/N</th>
 														<th>Status</th>

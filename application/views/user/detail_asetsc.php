@@ -39,11 +39,10 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Home</a>
 							</li>
-
 							<li>
 								<a href="<?= base_url ('dataasetsc') ;?>">Persediaan Suku Cadang</a>
 							</li>
-							<li class="active">Aset Masuk </li>
+							<li class="active">Daftar Aset </li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -87,98 +86,141 @@
 						</div><!-- /.ace-settings-container -->
 
 						<!-- /section:settings.box -->
-						
-								<div class="row">
+						<div class="row">
 									<div class="col-xs-12">
-										   <?= $this->session->flashdata('message'); ?>
-											<?= $this->session->flashdata('pesan'); ?>
 
-										<h3 class="header smaller lighter blue">Aset Masuk (Suku Cadang)</h3>
+          							<?= $this->session->flashdata('message'); ?>
+          							<?= $this->session->flashdata('pesan'); ?>
+
+										<div class="widget-box transparent">
+											<div class="widget-header widget-header-large">
+												<h3 class="widget-title grey lighter">
+													<i class="ace-icon "></i>
+													Detail Aset (<?= $asetsc['nama_brg']; ?>)
+												</h3>
+
+												<!-- #section:pages/invoice.info -->
+												<div class="widget-toolbar no-border invoice-info">
+													
+												</div>
+
+												<div class="widget-toolbar hidden-480">
+													<a href="<?= base_url('laporan/createpdf')?>">
+														<i class="ace-icon "></i>
+													</a>
+												</div>
+
+												<!-- /section:pages/invoice.info -->
+											</div>
 										<div class="pull-right tableTools-container"></div>
 										</div>
-										<div class="col-auto">
-							                <a href="<?= base_url('addasetmasuksc'); ?>" class="btn btn-success">
-							                    <span class="icon">
-							                        <i class="fa fa-plus"></i>
-							                    </span>
-							                    <span class="text">
-							                        Input Aset Masuk
-							                    </span>
-							                </a>
-							            </div>
-
+										
 										<div class="clearfix">
 
-										<div class="table-header">
-											Historis Aset Masuk
-										</div>
+											<div class="col-sm-7">
+											
+											<div class="space-12"></div>
+
+											<!-- #section:pages/profile.info -->
+											<div class="profile-user-info profile-user-info-striped">
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Nama Aset</div>
+
+													<div class="profile-info-value">
+														<span class="editable" id="username"><?= $asetsc['nama_brg']; ?></span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Stok </div>
 
 
+													<div class="profile-info-value">
+														
+														<span class="editable" id="age"><?= $asetsc['stok']; ?></span>
+
+													</div>
+												</div>
+
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Merk </div>
+
+													<div class="profile-info-value">
+														<i class="fa fa-info-circle light-orange bigger-110"></i>
+														<span class="editable" id="country"><?= $asetsc['merk']; ?></span>
+													
+													</div>
+												</div>
+
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Model </div>
+
+													<div class="profile-info-value">
+														<i class="fa  light-orange bigger-110"></i>
+														<span class="editable" id="country"><?= $asetsc['model']; ?></span>
+													
+													</div>
+												</div>
+
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Serial Number </div>
+
+													<div class="profile-info-value">
+													
+														<span class="editable" id="age"><?= $asetsc['no_seri']; ?></span>
+													</div>
+												</div>
+
+
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Kategori </div>
+
+													<div class="profile-info-value">
+														<span class="editable" id="age"><?= $asetsc['nama_type']; ?></span>
+													</div>
+												</div>
+
+
+												
+
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Lokasi </div>
+
+
+													<div class="profile-info-value">
+														
+														<span class="editable" id="age"><?= $asetsc['lokasi']; ?></span>
+
+													</div>
+												</div>
+
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Keterangan </div>
+
+
+													<div class="profile-info-value">
+														
+														<span class="editable" id="age"><?= $asetsc['ket']; ?></span>
+
+													</div>
+												</div>
+
+												
+											</div>
+											</div>
+									
+
+
+											<!-- /section:pages/profile.info -->
+											
+
+								</div>
+
+										
 										<!-- div.table-responsive -->
 
 										<!-- div.dataTables_borderWrap -->
-										<div>
-											<table id="example" class="table table-striped table-bordered table-hover">
-												<thead>
-													<tr>
-														
-														<th>No. </th>
-									                    <th>No Transaksi</th>
-									                    <th>Tanggal Masuk</th>
-									                    <th>Nama</th>
-									                    <th>Merk</th>
-									                    <th>Kategori</th>
-									                    <th>Jumlah Masuk</th>
-									                    <th>Petugas</th>
-														<th >Opsi</th>
-
-													
-													</tr>
-												</thead>
-
-												<tbody>
-
-													<tr>
-													
-									               <?php $i = 1;  
-									                
-									                    foreach ($asetmasuk as $bm) :
-									                        ?>
-														
-														
-
-														 <td><?= $i;?></td>
-							                            <td><?= $bm['id_aset_masuk']; ?></td>
-							                            <td><?= $bm['tanggal_masuk']; ?></td>
-							                            <td><?= $bm['nama_brg']; ?></td>
-							                            <td><?= $bm['merk']; ?></td>
-							                            <td><?= $bm['nama_type']; ?></td>
-							                            <td><?= $bm['jumlah_masuk']; ?></td>
-							                            <td><?= $bm['name']; ?></td>
-														<td>
-															<div class="hidden-sm hidden-xs action-buttons">
-																
-
-																
-																<a class="red" href="<?= base_url('asetmasuk/delete/') . $bm['id_aset_masuk'] ?>" onclick="javascript: return confirm('Apakah yakin menghapus')">
-																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-
-															
-														</td>
-													</tr>
-
-													
-													
-
-														
-
-														 <?php $i++; ?>
-													<?php endforeach; ?>
-												</tbody>
-											</table>
-										</div>
+										
+										
 									</div>
 								</div>
 
@@ -239,25 +281,20 @@
 		</div><!-- /.main-container -->
 
 		<!-- basic scripts -->
-
-		<!--[if !IE]> -->
+	<!--[i	<!--[if !IE]> -->
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='<?= base_url('assets/') ;?>js/jquery.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='<?= base_url('assets/'); ?>js/jquery.js'>"+"<"+"/script>");
 		</script>
-
+	
 
 		<!-- <![endif]-->
-
-		<!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='../assets/js/jquery1x.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
 		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='<?= base_url('assets/') ;?>js/jquery.mobile.custom.js'>"+"<"+"/script>");
+			if('ontouchstart' in document.documentElement) document.write("<script src='<?= base_url('assets/'); ?>js/jquery.mobile.custom.js'>"+"<"+"/script>");
 		</script>
-		<script src="<?= base_url('assets/') ;?>js/bootstrap.js"></script>
-		
+		<script src="<?= base_url('assets/'); ?>js/bootstrap.js"></script>
+
+
+
 
 		<!-- page specific plugin scripts -->
 		<script src="<?= base_url('assets/') ;?>js/dataTables/jquery.dataTables.js"></script>
@@ -265,19 +302,14 @@
 		<script src="<?= base_url('assets/') ;?>js/dataTables/extensions/TableTools/js/dataTables.tableTools.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/dataTables/extensions/ColVis/js/dataTables.colVis.js"></script>
 
-
-
-
-
 		<!-- ace scripts -->
-
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.scroller.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.colorpicker.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.fileinput.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.typeahead.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.wysiwyg.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.spinner.js"></script>
-		<script src="<?= base_url('assets/') ;?>js/ace/elements.treeview.js"></script>
+		<script src="<?= base_url('assets/') ;?>s/ace/elements.treeview.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.wizard.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/elements.aside.js"></script>
 		<script src="<?= base_url('assets/') ;?>js/ace/ace.js"></script>
@@ -298,14 +330,8 @@
 			$(document).ready(function() {
    			 $('#example').DataTable();
 				} );
-
 		</script>
-		<script type="text/javascript">
-
-
-
-		</script>
-
+		
 		<!-- the following scripts are used in demo only for onpage help and you don't need them -->
 		<link rel="stylesheet" href="<?= base_url('assets/') ;?>css/ace.onpage-help.css" >
 		<link rel="stylesheet" href="<?= base_url('assets/') ;?>docs/assets/js/themes/sunburst.css" >
@@ -318,6 +344,5 @@
 		<script src="<?= base_url('assets/') ;?>docs/assets/js/language/html.js"></script>
 		<script src="<?= base_url('assets/') ;?>docs/assets/js/language/css.js"></script>
 		<script src="<?= base_url('assets/') ;?>docs/assets/js/language/javascript.js"></script>
-
 	</body>
 </html>

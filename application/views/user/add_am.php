@@ -118,7 +118,7 @@
 												<option value="" selected disabled >Pilih Aset</option>
 
 												  <?php foreach ($aset as $b) : ?> 
-		                                    <option value="<?= $b['kode_brg'] ?>">kode:<?= $b['kode_brg'] . ' - ' . $b['nama_brg'] . ' - ' . $b['merk']?></option>
+		                                    <option value="<?= $b['kode_brg'] ?>">kode:<?= $b['kode_brg'] . ' - ' . $b['nama_brg'] . ' | ' . $b['merk']?></option>
 		                                <?php endforeach; ?>				
 											</select>									
 										</div>
@@ -130,7 +130,7 @@
 									<div class="space-4"></div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="type_id"> Type </label>
+										<label class="col-sm-3 control-label no-padding-right" for="type_id"> Kategori </label>
 
 										<div class="col-sm-9">
 											<input readonly="" type="text" class="col-xs-10 col-sm-5" id="type_id" >

@@ -22,6 +22,7 @@ class User extends CI_Controller {
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
 		$this->load->library('session');
 		$data['barang'] = $this->barangm->count('barang');
+		$data['pengguna'] = $this->barangm->count('user');
         $data['barang_masuk'] = $this->barangm->count('barang_masuk');
         $data['barang_keluar'] = $this->barangm->count('barang_keluar');
        

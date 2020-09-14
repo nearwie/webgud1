@@ -360,6 +360,7 @@ public function get_barang_by_id($kode_brg=0)
         $this->db->select('*');
         $this->db->join('user u', 'bk.user_id = u.id');
         $this->db->join('tbl_brg b', 'bk.aset_id = b.kode_brg');
+        
       
          $this->db->join('tbl_type j', 'b.type_id = j.id_type');
         

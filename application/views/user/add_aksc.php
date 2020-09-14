@@ -79,7 +79,7 @@
 		                			<?= form_open('', [], ['id_aset_keluar' => $id_aset_keluar, 'user_id' => $user['id']]); ?>
 									<!-- #section:elements.form -->
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="id_aset_keluar"> ID Transaksi AK </label>
+										<label class="col-sm-2 control-label no-padding-right" for="id_aset_keluar"> ID Transaksi AK </label>
 
 										<div class="col-sm-9">
 											<input value="<?= $id_aset_keluar; ?>" type="text" readonly="readonly" class="col-xs-10 col-sm-5" >
@@ -87,7 +87,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="tanggal_keluar" class="col-sm-3 control-label no-padding-right" > Tanggal Keluar</label>
+										<label for="tanggal_keluar" class="col-sm-2 control-label no-padding-right" > Tanggal Keluar</label>
 
 											<div class="row">
 												<div class="col-xs-8 col-sm-3">
@@ -110,7 +110,7 @@
 									<div class="space-4"></div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="aset_id"> Nama AK </label>
+										<label class="col-sm-2 control-label no-padding-right" for="aset_id"> Nama AK </label>
 
 										<div class="col-sm-4">
 											 <div class="input-group">
@@ -118,7 +118,7 @@
 												<option value="" selected disabled >Pilih Aset</option>
 
 												  <?php foreach ($aset as $b) : ?> 
-		                                    <option value="<?= $b['kode_brg'] ?>">kode:<?= $b['kode_brg'] . ' - ' . $b['nama_brg'] ?></option>
+		                                    <option value="<?= $b['kode_brg'] ?>">kode:<?= $b['kode_brg'] . ' - ' . $b['nama_brg']. ' | ' . $b['merk']?></option>
 		                                <?php endforeach; ?>				
 											</select>									
 										</div>
@@ -130,7 +130,20 @@
 									<div class="space-4"></div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="type_id"> Type </label>
+										<label class="col-sm-2 control-label no-padding-right" for="merk"> Merk </label>
+
+										<div class="col-sm-9">
+											<input readonly="" type="text" class="col-xs-10 col-sm-5" id="merk" >
+											<span class="help-inline col-xs-12 col-sm-7">
+												<label class="middle">
+													
+												</label>
+											</span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="type_id"> Kategori </label>
 
 										<div class="col-sm-9">
 											<input readonly="" type="text" class="col-xs-10 col-sm-5" id="type_id" >
@@ -143,8 +156,12 @@
 									</div>
 
 
+									
+
+
+
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="stok">Stok</label>
+										<label class="col-sm-2 control-label no-padding-right" for="stok">Stok</label>
 
 										<div class="col-sm-9">
 											<div class="clearfix">
@@ -158,7 +175,7 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="jumlah_keluar">Jumlah Keluar</label>
+										<label class="col-sm-2 control-label no-padding-right" for="jumlah_keluar">Jumlah Keluar</label>
 
 										<div class="col-sm-9">
 											
@@ -180,7 +197,7 @@
 									<div class="space-4"></div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="total_stok">Total Stok</label>
+										<label class="col-sm-2 control-label no-padding-right" for="total_stok">Total Stok</label>
 
 										<div class="col-sm-9">
 											<!-- #section:plugins/input.tag-input -->
@@ -192,6 +209,56 @@
 										</div>
 									</div>
 
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="tujuan"> Tujuan/Kegiatan</label>
+
+										<div class="col-sm-9">
+											<input  type="text"  id="tujan" name="tujuan" class="col-xs-10 col-sm-5" placeholder="Tujuan/Kegiatan..." >
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="sta_id"> Pos Hujan OBS</label>
+
+										<div class="col-sm-3">
+											 <div class="input-group">
+											<select name="sta_id" id="sta_id" class="custom-select">
+												<option value="-" selected  >Pilih Pos Hujan</option>
+
+												  <?php foreach ($posid as $pos) : ?> 
+		                                    <option value="<?= $pos['id_sta'] ?>"><?= $pos['id_sta'] . ' - ' . $pos['nama_pos']. ' | ' . $pos['wilayah']?></option>
+		                                <?php endforeach; ?>				
+											</select>									
+										</div>
+										 <?= form_error('sta_id', '<small class="text-danger">', '</small>'); ?>
+										</div>
+									</div>
+
+
+
+										<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right">Petugas 1 & 2</label>
+										
+
+										<div class="col-sm-9">
+											<!-- #section:elements.form.input-icon -->
+											<span class="input-icon">
+												<input type="text" id="petugas_1 " name="petugas_1" placeholder="Petugas 1..." />
+												<i class="ace-icon fa "></i>
+											</span>
+
+
+											<span class="input-icon input-icon-right"> 
+
+												<input type="text" id="petugas_2" name="petugas_2" placeholder="Petugas 2..." />
+												<i class="ace-icon "></i>
+											</span>
+
+											<!-- /section:elements.form.input-icon -->
+										
+										</div>
+									</div>
+
 									<div class="clearfix form-actions">
 										<div class="col-md-offset-3 col-md-9">
 											<button class="btn btn-info" type="submit">
@@ -199,7 +266,7 @@
 												Submit
 											</button>
 
-											&nbsp; &nbsp; &nbsp;
+											
 											<button class="btn" type="reset">
 												<i class="ace-icon fa fa-undo bigger-110"></i>
 												Reset
@@ -343,7 +410,7 @@
 		<!-- inline scripts related to this page -->
 		 <script type="text/javascript">
         let hal = '<?= $this->uri->segment(3); ?>';
-
+         let merk = $('#merk');
         let type_id = $('#type_id');
         let stok = $('#stok');
         let total = $('#total_stok');
@@ -352,7 +419,7 @@
         $(document).on('change', '#aset_id', function() {
             let url = '<?= base_url('dataasetsc/getstok/'); ?>' + this.value;
             $.getJSON(url, function(data) {
-                
+                 merk.val(data.merk);
                 type_id.val(data.nama_type);
                 stok.val(data.stok);
                 total.val(data.stok);

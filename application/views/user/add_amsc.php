@@ -121,7 +121,7 @@
 												<option value="" selected disabled >Pilih Aset</option>
 
 												  <?php foreach ($aset as $b) : ?> 
-		                                    <option value="<?= $b['kode_brg'] ?>">kode:<?= $b['kode_brg'] . ' - ' . $b['nama_brg'] ?></option>
+		                                    <option value="<?= $b['kode_brg'] ?>">kode:<?= $b['kode_brg'] . ' - ' . $b['nama_brg'] . ' | ' . $b['merk']?></option>
 		                                <?php endforeach; ?>				
 											</select>									
 										</div>
@@ -133,10 +133,26 @@
 									<div class="space-4"></div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="type_id"> Type </label>
+										<label class="col-sm-3 control-label no-padding-right" for="type_id"> Kategori </label>
 
 										<div class="col-sm-9">
 											<input readonly="" type="text" class="col-xs-10 col-sm-5" id="type_id" >
+											<span class="help-inline col-xs-12 col-sm-7">
+												<label class="middle">
+													
+												</label>
+											</span>
+										</div>
+									</div>
+
+
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="merk"> Merk </label>
+
+										<div class="col-sm-9">
+											<input readonly="" type="text" class="col-xs-10 col-sm-5" id="merk" >
 											<span class="help-inline col-xs-12 col-sm-7">
 												<label class="middle">
 													
@@ -154,12 +170,11 @@
 												<input readonly="" class="col-xs-1" type="text" id="stok"  placeholder="" >
 											</div>
 
-											
-
-											
 										</div>
 									</div>
 
+									
+									
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="jumlah_masuk">Jumlah Masuk</label>
 
@@ -347,7 +362,7 @@
 		 <script type="text/javascript">
         let hal = '<?= $this->uri->segment(3); ?>';
 
-       
+        let merk = $('#merk');
         let type_id = $('#type_id');
         let stok = $('#stok');
         let total = $('#total_stok');
@@ -356,7 +371,7 @@
         $(document).on('change', '#aset_id', function() {
             let url = '<?= base_url('dataasetsc/getstok/'); ?>' + this.value;
             $.getJSON(url, function(data) {
-                
+                merk.val(data.merk);
                 type_id.val(data.nama_type);
                 stok.val(data.stok);
                 total.val(data.stok);
