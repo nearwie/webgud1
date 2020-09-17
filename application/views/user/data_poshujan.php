@@ -37,7 +37,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
+								<a href="<?= base_url ('user') ;?>">Home</a>
 							</li>
 							<li>
 								<a href="<?= base_url ('dataasetsc') ;?>">Pos Hujan Kerjasama</a>
@@ -46,15 +46,7 @@
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" >
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
-
+						
 						<!-- /section:basics/content.searchbox -->
 					</div>
 
@@ -120,7 +112,7 @@
 										<div class="pull-right tableTools-container"></div>
 										</div>
 										<div class="col-auto">
-							                <a href="<?= base_url('dataasetsc/tambah'); ?>" class="btn btn-success">
+							                <a href="<?= base_url('poshujan/tambah'); ?>" class="btn btn-success">
 							                    <span class="icon">
 							                        <i class="fa fa-plus"></i>
 							                    </span>
@@ -186,16 +178,13 @@
 														<td>
 															<div class="hidden-sm hidden-xs action-buttons">
 
-																<a class="purple" href="" class="badge badge-success">
-																	<i class="ace-icon fa fa-eye bigger-130"></i>
-																</a>
 																
 
-																<a class="green" href="" class="badge badge-success">
+																<a class="green" href="<?php echo base_url('poshujan/edit/'.$a['id_sta']) ?>"  class="badge badge-success">
 																	<i class="ace-icon fa fa-pencil bigger-130"></i>
 																</a>
 
-																<a class="red" href=""  onclick="javascript: return confirm('Apakah yakin menghapus')" class="badge badge-danger">
+																<a class="red" href="<?php echo base_url('poshujan/delete/'.$a['id_sta']) ?>" onclick="javascript: return confirm('Apakah yakin menghapus')" class="badge badge-danger">
 																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
 																</a>
 															</div>
@@ -207,16 +196,10 @@
 																	</button>
 
 																	<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-																		<li>
-																			<a href=""  class="tooltip-success" data-rel="tooltip" title="Edit">
-																				<span class="purple">
-																					<i class="ace-icon fa fa-eye bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
+																		
 
 																		<li>
-																			<a href=""  class="tooltip-success" data-rel="tooltip" title="Edit">
+																			<a href="<?php echo base_url('poshujan/edit/'.$a['id_sta']) ?>"  class="tooltip-success" data-rel="tooltip" title="Edit">
 																				<span class="green">
 																					<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
 																				</span>
@@ -224,7 +207,7 @@
 																		</li>
 
 																		<li>
-																			<a href=""  class="tooltip-error" data-rel="tooltip" title="Delete">
+																			<a href="<?php echo base_url('poshujan/delete/'.$a['id_sta']) ?>" onclick="javascript: return confirm('Apakah yakin menghapus')" class="tooltip-error" data-rel="tooltip" title="Delete">
 																				<span class="red">
 																					<i class="ace-icon fa fa-trash-o bigger-120"></i>
 																				</span>

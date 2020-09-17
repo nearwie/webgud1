@@ -37,13 +37,10 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
+								<a href="<?= base_url ('user') ;?>">Home</a>
 							</li>
 
-							<li>
-								<a href="<?= base_url ('detailbrg') ;?>">Data Barang</a>
-							</li>
-							<li class="active">Daftar Barang</li>
+							
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -86,268 +83,125 @@
 							</div><!-- /.ace-settings-box -->
 						</div><!-- /.ace-settings-container -->
 						<!-- /section:settings.box -->
+
+						<div class="page-header">
+							<h1 >
+								Selamat Datang <?= $user['name'];?> di Aplikasi SI-GUDANG !!!
+								
+							</h1>
+						</div><!-- /.page-header -->
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
 								<div class="row">
 
-								<div class="col-sm-12 infobox-container">
-										<!-- #section:pages/dashboard.infobox -->
-										<div class="infobox infobox-green">
-											<div class="infobox-icon">
-												<i class="ace-icon fa fa-inbox"></i>
-											</div>
+								
+									<div class="row">
+														<div class="col-xs-12 col-sm-6">
+															<div class="widget-box transparent">
+																<div class="widget-header widget-header-small">
+																	<h4 class="widget-title smaller">
+																		<i class="ace-icon fa fa-check-square-o bigger-110"></i>
+																		Latar Belakang
+																	</h4>
+																</div>
 
-											<div class="infobox-data">
-												<span class="infobox-data-number"><?= $barang; ?></span>
-												<div class="infobox-content">Total Data Barang</div>
-											</div>
+																<div class="widget-body">
+																	<div class="widget-main">
+																		<p align="justify">
+																			Inventarisasi adalah serangkaian kegiatan melaksanakan pengurusan, pengaturan, pencatatan dan pendaftaran barang-barang inventaris milik UPT / kantor yang dipakai dalam melaksanakan tugas. Inventarisasi ini mengacu pada  persediaan barang sumber daya yang berbentuk Suku cadang komponen yang digunakan oleh teknisi Stasiun Klimatologi Lombok Barat melakukan pemeliharaan dan perbaikan alat. 
+																		</p>
+												
+																		<p align="justify">
+																			Inventarisasi suku cadang / aset peralatan dilaksanakan berdasarkan prinsip efisien, efektif, transparan dan akuntabel. Untuk menunjang kegiatan inventarisasi di Stasiun Klimatologi Kelas I Lombok Barat diperlukan sebuah aplikasi yang disebut Sistem Monitoring Suku Cadang (Si-GUDANG).
+																		</p>
+																							
+																	</div>
+																</div>
+																
+															</div>
+														</div>
 
-											<!-- #section:pages/dashboard.infobox.stat -->
-											
 
-											<!-- /section:pages/dashboard.infobox.stat -->
-										</div>
+														<div class="col-xs-12 col-sm-6">
+															<div class="widget-box transparent">
+																<div class="widget-header widget-header-small header-color-blue2">
+																	<h4 class="widget-title smaller">
+																		<i class="ace-icon fa fa-lightbulb-o bigger-120"></i>
+																		Aplikasi Si-GUDANG
+																	</h4>
+																</div>
 
-										<div class="infobox infobox-orange">
-											<div class="infobox-icon">
-												<i class="ace-icon fa fa-filter"></i>
-											</div>
 
-											<div class="infobox-data">
-												<span class="infobox-data-number"><?= $stok; ?></span>
-												<div class="infobox-content">Total Stok Barang</div>
-											</div>
+																<div class="widget-body">
+																	<div class="widget-main">
+																		<p align="justify">
+																			Aplikasi Si-GUDANG (Sistem Monitoring Suku Cadang) dibuat untuk memfasilitasi proses monitoring persediaan jumlah suku cadang / aset peralatan secara online di Stasiun Klimatologi Kelas I Lombok Barat. 
+																		</p>
+												
+																		<p align="justify">
+																			Aplikasi ini bisa memberikan kemudahan dalam proses pengecekan suku cadang / aset peralatan yang masuk maupun yang keluar, memberikan informasi kondisi suku cadang / aset peralatan, serta membantu dalam proses pelacakan lokasi suku cadang / aset peralatan berada. Sistem ini juga memberikan cetak laporan berdasarkan harian, mingguan, dan bulanan.
+																		</p>
+																							
+																		</p>
+																	</div>
+																</div>
 
-											
-										</div>
-
-										<div class="infobox infobox-red">
-											<div class="infobox-icon">
-												<i class="ace-icon fa fa-users"></i>
-											</div>
-
-											<div class="infobox-data">
-												<span class="infobox-data-number"><?= $pengguna; ?></span>
-												<div class="infobox-content">Total User</div>
-											</div>
-											
-										</div>
-
-										
-
-										
-
-										
-								</div>
-							</div>
-							<div class="space-6"></div>
-
-								<div class="row">
-									<!-- #section:pages/pricing.large -->
-									<div class="col-xl-8 col-sm-6 pricing-box">
-										<div class="widget-box widget-color-purple">
-											<div class="widget-header">
-												<h5 class="widget-title bigger lighter">Total Transaksi Barang Perbulan pada Tahun <?= date('Y'); ?></h5>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main">
-															<div class="card-body">
-									                            <div class="chart-area">
-									                                <div class="chartjs-size-monitor">
-									                                    <div class="chartjs-size-monitor-expand">
-									                                        <div class=""></div>
-									                                    </div>
-									                                    <div class="chartjs-size-monitor-shrink">
-									                                        <div class=""></div>
-									                                    </div>
-									                                </div>
-									                                <canvas id="myAreaChart" width="400" height="320" class="chartjs-render-monitor" style="display: block; width: 669px; height: 320px;"></canvas>
-									                            </div>
-									                        </div>
-									                    </div>
-									               
 																
 
-													<hr />
-													
-												</div>
+																		
+
+																		<!-- #section:pages/profile.skill-progress -->
+																		
+
+																		<!-- /section:pages/profile.skill-progress -->
+																	</div>
+																</div>
+															</div>
+														</div>
+														<h3 class="header smaller lighter purple">Fitur Aplikasi Si-GUDANG</h3>
+													<div class="profile-skills">
+																			<div class="progress">
+																				<div class="progress-bar progress-bar-danger" style="width:60%">
+																					<span class="pull-left">Fitur untuk mengetahui stok barang yang tersedia</span>
+																					<span class="pull-right"></span>
+																				</div>
+																			</div>
+
+																			<div class="progress">
+																				<div class="progress-bar progress-bar-success" style="width:52%">
+																					<span class="pull-left">Fitur untuk pencatatan barang masuk</span>
+
+																					<span class="pull-right"></span>
+																				</div>
+																			</div>
+
+																			<div class="progress">
+																				<div class="progress-bar progress-bar-purple" style="width:40%">
+																					<span class="pull-left"> Fitur untuk pencatatan barang keluar</span>
+
+																					<span class="pull-right"></span>
+																				</div>
+																			</div>
+
+																			<div class="progress">
+																				<div class="progress-bar progress-bar-warning" style="width:30%">
+																					<span class="pull-left">Fitur untuk pembuatan laporan stok barang</span>
+
+																					<span class="pull-right"></span>
+																				</div>
+																			</div>
+
+																			
+																		</div>
 
 												
 											</div>
 										</div>
 									
-									<div class="col-xl-4 col-sm-6 pricing-box">
-										<div class="widget-box widget-color-blue">
-											<div class="widget-header">
-												<h5 class="widget-title bigger lighter">Transaksi Barang</h5>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main">
-														<div class="card-body">
-								                            <div class="chart-pie pt-4 pb-2">
-								                                <div class="chartjs-size-monitor">
-								                                    <div class="chartjs-size-monitor-expand">
-								                                        <div class=""></div>
-								                                    </div>
-								                                    <div class="chartjs-size-monitor-shrink">
-								                                        <div class=""></div>
-								                                    </div>
-								                                </div>
-								                                <canvas id="myPieChart" width="302" height="245" class="chartjs-render-monitor" style="display: block; width: 302px; height: 297px;"></canvas>
-								                            </div>
-								                            <div class="mt-4 text-center small">
-								                                <span class="mr-2">
-								                                    <i class="ace-icon fa fa-circle fa-2x red"></i> Barang Keluar
-								                                </span>
-
-								                                <span class="mr-2">
-								                                    <i class="ace-icon fa fa-circle fa-2x green"></i> Barang Masuk
-								                                </span>
-								                            </div>
-								                        </div>
-								                    </div>
-													<hr />
-													
-												</div>
-
-												
-											</div>
-										</div>
-									</div>
-
-								<div class="space-6"></div>
-
-			
-
+									
 									<!-- /section:pages/pricing.large -->
-								</div>
-
-
-						
-							<div class="col-xs-12">
-								<!-- PAGE CONTENT BEGINS -->
-								<div class="row">
-									<!-- #section:pages/pricing.large -->
-									<div class="col-xs-6 col-sm-4 pricing-box">
-										<div class="widget-box widget-color-dark">
-											<div class="widget-header">
-												<h5 class="widget-title bigger lighter">Stok Barang Minimum</h5>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main">
-												
-								                            <table class="table mb-0 text-center table-striped table-sm">
-								                                <thead>
-								                                    <tr>
-								                                        <th>Barang</th>
-								                                        <th>Stok</th>
-								                                        <th>Pasok</th>
-								                                    </tr>
-								                                </thead>
-								                                <tbody>
-								                                    <?php
-								                                    if ($barang_min) :
-								                                        foreach ($barang_min as $b) :
-								                                            ?>
-								                                            <tr>
-								                                                <td><?= $b['nama_brg']; ?></td>
-								                                                <td><?= $b['stok']; ?></td>
-								                                                <td>
-								                                                    <a href="<?= base_url('barangmasuk/add/') . $b['kode_brg'] ?>" class="btn btn-warning btn-sm"><i class="fa fa-plus"></i></a>
-								                                                </td>
-								                                            </tr>
-								                                        <?php endforeach; ?>
-								                                    <?php else : ?>
-								                                        <tr>
-								                                            <td colspan="3" class="text-center">
-								                                                Tidak ada barang stok minim
-								                                            </td>
-								                                        </tr>
-								                                    <?php endif; ?>
-								                                </tbody>
-								                            </table>
-								                       
-
-													<hr />
-													
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-xs-6 col-sm-4 pricing-box">
-										<div class="widget-box widget-color-green">
-											<div class="widget-header">
-												<h5 class="widget-title bigger lighter">Transaksi Terakhir Barang Masuk</h5>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main">
-													<table class="table mb-0 table-sm table-striped text-center">
-						                                <thead>
-						                                    <tr>
-						                                        <th>Tanggal</th>
-						                                        <th>Barang</th>
-						                                        <th>Jumlah</th>
-						                                    </tr>
-						                                </thead>
-						                                <tbody>
-						                                    <?php foreach ($transaksi['barang_masuk'] as $tbm) : ?>
-						                                        <tr>
-						                                            <td><strong><?= $tbm['tanggal_masuk']; ?></strong></td>
-						                                            <td><?= $tbm['nama_brg']; ?></td>
-						                                            <td><span class="badge badge-success"><?= $tbm['jumlah_masuk']; ?></span></td>
-						                                        </tr>
-						                                    <?php endforeach; ?>
-						                                </tbody>
-						                            </table>
-													<hr />
-													
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-xs-6 col-sm-4 pricing-box">
-										<div class="widget-box widget-color-red">
-											<div class="widget-header">
-												<h5 class="widget-title bigger lighter">5 Transaksi Terakhir Barang Keluar</h5>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main">
-													 <table class="table mb-0 table-sm table-striped text-center">
-						                                <thead>
-						                                    <tr>
-						                                        <th>Tanggal</th>
-						                                        <th>Barang</th>
-						                                        <th>Jumlah</th>
-						                                    </tr>
-						                                </thead>
-						                                <tbody>
-						                                    <?php foreach ($transaksi['barang_keluar'] as $tbk) : ?>
-						                                        <tr>
-						                                            <td><strong><?= $tbk['tanggal_keluar']; ?></strong></td>
-						                                            <td><?= $tbk['nama_brg']; ?></td>
-						                                            <td><span class="badge badge-danger"><?= $tbk['jumlah_keluar']; ?></span></td>
-						                                        </tr>
-						                                    <?php endforeach; ?>
-						                                </tbody>
-						                            </table>
-
-													<hr />
-													
-												</div>
-
-												
-											</div>
-										</div>
-									</div>
-
+								
 					
 								</div><!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->

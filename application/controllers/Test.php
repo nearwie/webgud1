@@ -126,5 +126,13 @@ class Test extends CI_Controller
                 redirect('databarang/tambah');
             }
         }
+
+
+
+
     }
 }
+
+ $this->db->join('tbl_barangprm r', 'bk.barang = r.id');
+        $this->db->join('tbl_merk k', 'bk.merk = k.id');
+        $this->db->join('tbl_model m', 'bk.model = m.id');

@@ -1,20 +1,21 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Poshujan_model extends CI_Model
+class Maset_model extends CI_Model
 {
-	
+    
 
   public function __construct()
     {
         $this->load->database();
     }
 
+
+
     public function count($table)
     {
         return $this->db->count_all($table);
     }
-
 
     public function sum($table, $field)
     {
@@ -29,18 +30,18 @@ class Poshujan_model extends CI_Model
         return $this->db->get($table)->result_array();
     }
 
-    public function chartBarangMasuk($bulan)
+    public function chartAsetMasuk($bulan)
     {
         $like = 'T-BM-' . date('y') . $bulan;
-        $this->db->like('id_barang_masuk', $like, 'after');
-        return count($this->db->get('barang_masuk')->result_array());
+        $this->db->like('id_aset_masuk', $like, 'after');
+        return count($this->db->get('asetsc_masuk')->result_array());
     }
 
-    public function chartBarangKeluar($bulan)
+    public function chartAsetKeluar($bulan)
     {
         $like = 'T-BK-' . date('y') . $bulan;
-        $this->db->like('id_barang_keluar', $like, 'after');
-        return count($this->db->get('barang_keluar')->result_array());
+        $this->db->like('id_aset_keluar', $like, 'after');
+        return count($this->db->get('asetsc_keluar')->result_array());
     }
 
 
@@ -59,18 +60,18 @@ class Poshujan_model extends CI_Model
     {
         if ($id === 0)
         {
-            $query = $this->db->get('tbl_poshujan');
+            $query = $this->db->get('barang');
             return $query->result_array();
         }
  
-        $query = $this->db->get_where('tbl_poshujan', array('id_sta' => $id));
+        $query = $this->db->get_where('barang', array('kode_brg' => $id));
         return $query->row_array();
     }
 
     public function delete_brg($id)
     {
-        $this->db->where('id_sta', $id);
-        return $this->db->delete('tbl_poshujan');
+        $this->db->where('kode_brg', $id);
+        return $this->db->delete('barang');
     }
 
 
@@ -166,18 +167,6 @@ public function get_barang_by_id($kode_brg=0)
         return $query->row_array();
     }
 
-    public function get_type_by_id($id = 0)
-    {
-        if ($id === 0)
-        {
-            $query = $this->db->get('tbl_type');
-            return $query->result_array();
-        }
- 
-        $query = $this->db->get_where('tbl_type', array('id_type' => $id));
-        return $query->row_array();
-    }
-
     public function set_jenis($id = 0)
     {
         $this->load->helper('url');
@@ -202,44 +191,11 @@ public function get_barang_by_id($kode_brg=0)
     }
 
 
-
-     public function set_type($id = 0)
-    {
-        $this->load->helper('url');
-        $id_type = $this->input->post('id_type');
-            $nama_type = $this->input->post('nama_type');
-       
-        
-        
- 
-        $data = array(
-                    'id_type'=>$id_type,
-                    'nama_type'=>$nama_type,
-                    
-        );
-        
-        if ($id == 0) {
-            return $this->db->insert('tbl_type', $data);
-        } else {
-            $this->db->where('id_type', $id);
-            return $this->db->update('tbl_type', $data);
-        }
-    }
-
-
-
     public function delete_jenis($id)
     {
         $this->db->where('id_jenis', $id);
         return $this->db->delete('jenis');
     }
-
-     public function delete_type($id)
-    {
-        $this->db->where('id_type', $id);
-        return $this->db->delete('tbl_type');
-    }
-
 
 
 
@@ -288,43 +244,43 @@ public function get_barang_by_id($kode_brg=0)
         }
     }
 
-    public function get_brgmsk_by_id($id = 0)
+    public function get_astmsk_by_id($id = 0)
     {
         if ($id === 0)
         {
-            $query = $this->db->get('barang_masuk');
+            $query = $this->db->get('asetsc_masuk');
             return $query->result_array();
         }
  
-        $query = $this->db->get_where('barang_masuk', array('id_barang_masuk' => $id));
+        $query = $this->db->get_where('asetsc_masuk', array('id_aset_masuk' => $id));
         return $query->row_array();
     }
 
 
-    public function delete_brgmsk($id)
+    public function delete_astmsk($id)
     {
-        $this->db->where('id_barang_masuk', $id);
-        return $this->db->delete('barang_masuk');
+        $this->db->where('id_aset_masuk', $id);
+        return $this->db->delete('asetsc_masuk');
     }
 
 
-    public function get_brgklr_by_id($id = 0)
+    public function get_astklr_by_id($id = 0)
     {
         if ($id === 0)
         {
-            $query = $this->db->get('barang_keluar');
+            $query = $this->db->get('asetsc_keluar');
             return $query->result_array();
         }
  
-        $query = $this->db->get_where('barang_keluar', array('id_barang_keluar' => $id));
+        $query = $this->db->get_where('asetsc_keluar', array('id_aset_keluar' => $id));
         return $query->row_array();
     }
 
 
-    public function delete_brgklr($id)
+    public function delete_astklr($id)
     {
-        $this->db->where('id_barang_keluar', $id);
-        return $this->db->delete('barang_keluar');
+        $this->db->where('id_aset_keluar', $id);
+        return $this->db->delete('asetsc_keluar');
     }
 
 
@@ -338,11 +294,12 @@ public function get_barang_by_id($kode_brg=0)
         return $result;
     }
 
-    public function getPos()
+    public function getBarang()
     {
-      
-        $this->db->order_by('id_sta');
-        return $this->db->get('tbl_poshujan')->result_array();
+        $this->db->join('jenis j', 'b.jenis_id = j.id_jenis');
+        $this->db->join('satuan s', 'b.satuan_id = s.id_satuan');
+        $this->db->order_by('kode_brg');
+        return $this->db->get('barang b')->result_array();
     }
    
     
@@ -376,13 +333,13 @@ public function get_barang_by_id($kode_brg=0)
 
 
 
-    public function getBarangMasuk($limit = null, $kode_brg = null, $range = null)
+    public function getAsetMasuk($limit = null, $kode_brg = null, $range = null)
     {
         $this->db->select('*');
         $this->db->join('user u', 'bm.user_id = u.id');
-        $this->db->join('barang b', 'bm.barang_id = b.kode_brg');
-               $this->db->join('satuan s', 'b.satuan_id = s.id_satuan');
-               $this->db->join('jenis j', 'b.jenis_id = j.id_jenis');
+        $this->db->join('tbl_noseries b', 'bm.aset_id = b.id');
+              
+               $this->db->join('tbl_type j', 'b.type_id = j.id_type');
         if ($limit != null) {
             $this->db->limit($limit);
         }
@@ -396,30 +353,31 @@ public function get_barang_by_id($kode_brg=0)
             $this->db->where('tanggal_masuk' . ' <=', $range['akhir']);
         }
 
-        $this->db->order_by('id_barang_masuk', 'DESC');
-        return $this->db->get('barang_masuk bm')->result_array();
+        $this->db->order_by('id_aset_masuk', 'DESC');
+        return $this->db->get('aset_masuksc bm')->result_array();
     }
 
-    public function getBarangKeluar($limit = null, $kode_brg = null, $range = null)
+    public function getAsetKeluar($limit = null, $id = null, $range = null)
     {
         $this->db->select('*');
         $this->db->join('user u', 'bk.user_id = u.id');
-        $this->db->join('barang b', 'bk.barang_id = b.kode_brg');
-        $this->db->join('satuan s', 'b.satuan_id = s.id_satuan');
-         $this->db->join('jenis j', 'b.jenis_id = j.id_jenis');
+       
+        $this->db->join('tbl_noseries b', 'bk.aset_id = b.id');
+      $this->db->join('tbl_poshujan p', 'bk.sta_id = p.id_sta');
+        
         
         if ($limit != null) {
             $this->db->limit($limit);
         }
-        if ($kode_brg != null) {
-            $this->db->where('kode_brg', $kode_brg);
+        if ($id != null) {
+            $this->db->where('id', $id);
         }
         if ($range != null) {
             $this->db->where('tanggal_keluar' . ' >=', $range['mulai']);
             $this->db->where('tanggal_keluar' . ' <=', $range['akhir']);
         }
-        $this->db->order_by('id_barang_keluar', 'DESC');
-        return $this->db->get('barang_keluar bk')->result_array();
+        $this->db->order_by('id_aset_keluar', 'DESC');
+        return $this->db->get('aset_keluarsc bk')->result_array();
     }
 
     
@@ -437,9 +395,8 @@ public function get_barang_by_id($kode_brg=0)
 
 public function cekStok($id)
     {
-        $this->db->join('satuan s', 'b.satuan_id = s.id_satuan');
-        $this->db->join('jenis j', 'b.jenis_id = j.id_jenis');
-        return $this->db->get_where('barang b', ['kode_brg' => $id])->row_array();
+       
+        return $this->db->get_where('tbl_noseries', ['id' => $id])->row();
     }
 
 

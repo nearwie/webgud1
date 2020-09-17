@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class  Asetmasuksc extends CI_Controller
+class  C_asetkeluar extends CI_Controller
 {
 
     
@@ -14,7 +14,7 @@ class  Asetmasuksc extends CI_Controller
         $this->load->helper('url');
         $this->load->helper('form');
         
-        $this->load->model('Asetsc_model', 'asetscm');
+        $this->load->model('Maset_model', 'maset');
         $this->load->library('form_validation');
         //$this->load->model('leave_model');
     }
@@ -23,14 +23,14 @@ class  Asetmasuksc extends CI_Controller
 
     public function index ()
     {   
-        $data['title'] = 'Daftar Aset Masuk';
+        $data['title'] = 'Daftar Aset Keluar';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
         $this->load->library('session');
-         $data['asetmasuk'] = $this->asetscm->getAsetMasuk();
+         $data['asetkeluar'] = $this->maset->getAsetKeluar();
          
         
        
-        $this->load->view('user/asetmasuksc', $data);
+        $this->load->view('user/v_asetkeluar', $data);
      
 
     }
@@ -38,25 +38,26 @@ class  Asetmasuksc extends CI_Controller
 
     
    
-
-
-    public function delete()
+    
+     public function delete()
     {   $this->load->model('Asetsc_model');
         $id = $this->uri->segment(3);
         
         if (empty($id))
         {
-            $this->session->set_flashdata('message',  '<div class="alert alert-danger" role="alert">Gagal hapus data aset masuk</div>');
-        redirect( base_url() . 'asetmasuksc'); 
+            $this->session->set_flashdata('message',  '<div class="alert alert-danger" role="alert">Gagal hapus data aset keluar</div>');
+        redirect( base_url() . 'asetkeluarsc'); 
         }
                 
-        $a = $this->asetscm->get_astmsk_by_id($id);
+        $a = $this->asetscm->get_astklr_by_id($id);
         
-        $this->asetscm->delete_astmsk($id);   
-             $this->session->set_flashdata('message',  '<div class="alert alert-success" role="alert">Berhasil hapus data aset masuk</div>');
-        redirect( base_url() . 'asetmasuksc');        
+        $this->asetscm->delete_astklr($id);   
+             $this->session->set_flashdata('message',  '<div class="alert alert-success" role="alert">Berhasil hapus data aset keluar</div>');
+        redirect( base_url() . 'asetkeluarsc');        
     }
 
+
+  
 
   
 

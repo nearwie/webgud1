@@ -246,11 +246,11 @@ public function get_barang_by_id($kode_brg=0)
     {
         if ($id === 0)
         {
-            $query = $this->db->get('aset_masuk');
+            $query = $this->db->get('asetsc_masuk');
             return $query->result_array();
         }
  
-        $query = $this->db->get_where('aset_masuk', array('id_aset_masuk' => $id));
+        $query = $this->db->get_where('asetsc_masuk', array('id_aset_masuk' => $id));
         return $query->row_array();
     }
 
@@ -258,7 +258,7 @@ public function get_barang_by_id($kode_brg=0)
     public function delete_astmsk($id)
     {
         $this->db->where('id_aset_masuk', $id);
-        return $this->db->delete('aset_masuk');
+        return $this->db->delete('asetsc_masuk');
     }
 
 
@@ -266,11 +266,11 @@ public function get_barang_by_id($kode_brg=0)
     {
         if ($id === 0)
         {
-            $query = $this->db->get('aset_keluar');
+            $query = $this->db->get('asetsc_keluar');
             return $query->result_array();
         }
  
-        $query = $this->db->get_where('aset_keluar', array('id_aset_keluar' => $id));
+        $query = $this->db->get_where('asetsc_keluar', array('id_aset_keluar' => $id));
         return $query->row_array();
     }
 
@@ -278,7 +278,7 @@ public function get_barang_by_id($kode_brg=0)
     public function delete_astklr($id)
     {
         $this->db->where('id_aset_keluar', $id);
-        return $this->db->delete('aset_keluar');
+        return $this->db->delete('asetsc_keluar');
     }
 
 

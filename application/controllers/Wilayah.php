@@ -10,7 +10,7 @@ class Wilayah extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->helper('form');
 	
-		$this->load->model('Wilayah_model', 'wilm');
+		$this->load->model('Wilayah_model');
 		
 	}
 
@@ -23,8 +23,8 @@ class Wilayah extends CI_Controller {
 		
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
 
-		$data['kabupaten'] = $this->wilm->get_list_kabupaten();
-
+		 $data['provinsi'] = $this->Wilayah_model->getDataProv();
+      
 
 		
 		$this->load->view('user/wilayah', $data);
@@ -32,25 +32,37 @@ class Wilayah extends CI_Controller {
 	}
 
 
-	public function list_kec()
-	{
-		
-		$this->load->library('form_validation');
-		
-		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
-		$id_kab = $this->input->post('kab_id');
-		$kecamatan = $this->wilm->get_list_kec($id_kab);
-
-		 $lists = "<option value=''>--Please-Select---</option>";
-        foreach($kecamatan as $data){
-            $lists .= "<option value='".$data->id."'>".$data->kec."</option>"; 
-
+	 public function getKabupaten()
+    {
+        $idprov = $this->input->post('id');
+        $data = $this->Wilayah_model->getDatakabupaten($idprov);
+        $output = '<option value="">--Pilih Kabupaten-- </option>';
+        foreach ($data as $row) {
+            $output .= '<option value="' . $row->id . '"> ' . $row->nama . '</option>';
         }
-        $callback = array('list_kecamatan' => $lists);
-        echo json_encode($callback);
-		
-		
-	
-	}
+        $this->output->set_content_type('application/json')->set_output(json_encode($output));
+    }
+
+    public function getKecamatan()
+    {
+        $idkabupaten = $this->input->post('id');
+        $data = $this->Wilayah_model->getDatakecamatan($idkabupaten);
+        $output = '<option value="">--Pilih Kecamatan-- </option>';
+        foreach ($data as $row) {
+            $output .= '<option value="' . $row->id . '"> ' . $row->nama . '</option>';
+        }
+        $this->output->set_content_type('application/json')->set_output(json_encode($output));
+    }
+
+    public function getDesa()
+    {
+        $idkecamatan = $this->input->post('id');
+        $data = $this->Wilayah_model->getDataDesa($idkecamatan);
+        $output = '<option value="">--Pilih Desa-- </option>';
+        foreach ($data as $row) {
+            $output .= '<option value="' . $row->id . '"> ' . $row->nama . '</option>';
+        }
+        $this->output->set_content_type('application/json')->set_output(json_encode($output));
+    }
 
 }

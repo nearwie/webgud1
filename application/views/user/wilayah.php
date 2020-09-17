@@ -91,19 +91,30 @@
 									<div class="space-4"></div>
 
 									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="provinsi"> provinsi </label>
+
+										<div class="col-sm-4">
+											 <div class="input-group">
+											<select name="provinsi" id="provinsi" class="custom-select">
+												<option value="" >Pilih Kabupaten</option>
+
+												 <?php foreach ($provinsi as $prov) : ?>
+			                                        <option value="<?= $prov['id']; ?>"><?= $prov['nama']; ?></option>
+			                                    <?php endforeach; ?>
+															 				
+											</select>									
+										</div>
+										
+										</div>
+									</div>
+
+									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="kabupaten"> Kabupaten </label>
 
 										<div class="col-sm-4">
 											 <div class="input-group">
 											<select name="kabupaten" id="kabupaten" class="custom-select">
-												<option value="" selected disabled >Pilih Kabupaten</option>
-
-												 <?php
-							                        foreach($kabupaten as $data){ // Lakukan looping pada variabel siswa dari controller
-							                            echo "<option value='".$data->id_kab."'>".$data->kab."</option>";
-							                        }
-							                    ?>
-												 				
+												<option value=""  >Pilih Kabupaten</option>
 											</select>									
 										</div>
 										
@@ -119,7 +130,24 @@
 										<div class="col-sm-4">
 											 <div class="input-group">
 											<select name="kecamatan" id="kecamatan" class="custom-select">
-												<option value="" selected disabled >Pilih Kecamatan</option>
+												<option value=""  >Pilih Kecamatan</option>
+
+												 				
+											</select>									
+										</div>
+										
+										</div>
+									</div>
+
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="desa"> Desa </label>
+
+										<div class="col-sm-4">
+											 <div class="input-group">
+											<select name="desa" id="desa" class="custom-select">
+												<option value=""  >Pilih Desa</option>
 
 												 				
 											</select>									
@@ -283,34 +311,49 @@
 		<script src="<?= base_url('assets/'); ?>js/ace/ace.searchbox-autocomplete.js"></script>
 
 		<!-- inline scripts related to this page -->
-		<script>
-        $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di load)
-            // Kita sembunyikan dulu untuk loadingnya
-            $("#loading").hide();
- 
-            $("#kabupaten").change(function(){ // Ketika user mengganti atau memilih data provinsi
-                $("#kecamatan").hide(); // Sembunyikan dulu combobox kota nya
-                $("#loading").show(); // Tampilkan loadingnya
- 
+		 <script>
+        $(document).ready(function() {
+            $('#provinsi').change(function() {
+                var id = $(this).val();
                 $.ajax({
-                    type: "POST", // Method pengiriman data bisa dengan GET atau POST
-                    url: "<?php echo base_url("wilayah/list_kec"); ?>", // Isi dengan url/path file php yang dituju
-                    data: {kab_id : $("#kabupaten").val()}, // data yang akan dikirim ke file yang dituju
-                    dataType: "json",
-                    beforeSend: function(e) {
-                        if(e && e.overrideMimeType) {
-                                e.overrideMimeType("application/json;charset=UTF-8");
-                        }
+                    type: "POST",
+                    url: "<?= base_url('wilayah/getKabupaten') ?>",
+                    data: {
+                        id: id
                     },
-                    success: function(response){ // Ketika proses pengiriman berhasil
-                        $("#loading").hide(); // Sembunyikan loadingnya
- 
-                        // set isi dari combobox kota
-                        // lalu munculkan kembali combobox kotanya
-                        $("#kecamatan").html(response.list_kec).show();
+                    dataType: "JSON",
+                    success: function(response) {
+                        $('#kabupaten').html(response);
+                    }
+                });
+            });
+
+            $('#kabupaten').change(function() {
+                var id = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('wilayah/getKecamatan') ?>",
+                    data: {
+                        id: id
                     },
-                    error: function (xhr, ajaxOptions, thrownError) { // Ketika ada error
-                        alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
+                    dataType: "JSON",
+                    success: function(response) {
+                        $('#kecamatan').html(response);
+                    }
+                });
+            });
+
+            $('#kecamatan').change(function() {
+                var id = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('wilayah/getDesa') ?>",
+                    data: {
+                        id: id
+                    },
+                    dataType: "JSON",
+                    success: function(response) {
+                        $('#desa').html(response);
                     }
                 });
             });

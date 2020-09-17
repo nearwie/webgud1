@@ -37,7 +37,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
+								<a href="<?= base_url ('user') ;?>">Home</a>
 							</li>
 
 							<li>
@@ -47,14 +47,7 @@
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" >
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
+						
 
 						<!-- /section:basics/content.searchbox -->
 					</div>
@@ -93,24 +86,15 @@
 										   <?= $this->session->flashdata('message'); ?>
 											<?= $this->session->flashdata('pesan'); ?>
 
-										<h3 class="header smaller white">Riwayat Kegiatan Pos Hujan OBS</h3>
+										<h3 class="header  white">Riwayat Kegiatan - Pos Hujan OBS</h3>
 										<div class="pull-right tableTools-container"></div>
 										</div>
-										<div class="col-auto">
-							                <a>
-							                    <span class="icon">
-							                        <i ></i>
-							                    </span>
-							                    <span class="text">
-							                      
-							                    </span>
-							                </a>
-							            </div>
+									
 
 										<div class="clearfix">
 
 										<div class="table-header">
-											Staklim Lobar
+											Detail Riwayat Kegiatan - Pos Hujan OBS
 										</div>
 
 

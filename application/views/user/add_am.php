@@ -37,7 +37,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
+								<a href="<?= base_url ('user') ;?>">Home</a>
 							</li>
 
 							<li>
@@ -143,19 +143,7 @@
 									</div>
 
 
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="stok">Stok</label>
-
-										<div class="col-sm-9">
-											<div class="clearfix">
-												<input readonly="" class="col-xs-1" type="text" id="stok"  placeholder="" >
-											</div>
-
-											
-
-											
-										</div>
-									</div>
+									
 
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="jumlah_masuk">Jumlah Masuk</label>
@@ -179,19 +167,7 @@
 
 									<div class="space-4"></div>
 
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="total_stok">Total Stok</label>
-
-										<div class="col-sm-9">
-											<!-- #section:plugins/input.tag-input -->
-											<div class="inline">
-												<input readonly="" type="number"  id="total_stok"  placeholder="" >
-											</div>
-
-											<!-- /section:plugins/input.tag-input -->
-										</div>
-									</div>
-
+									
 									<div class="clearfix form-actions">
 										<div class="col-md-offset-3 col-md-9">
 											<button class="btn btn-info" type="submit">

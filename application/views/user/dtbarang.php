@@ -37,11 +37,11 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
+								<a href="<?= base_url ('user') ;?>">Home</a>
 							</li>
 
 							<li>
-								<a href="<?= base_url ('detailbrg') ;?>">Data Barang</a>
+								<a href="<?= base_url ('detailbrg') ;?>">Persediaan Pias</a>
 							</li>
 							<li class="active">Daftar Barang</li>
 						</ul><!-- /.breadcrumb -->

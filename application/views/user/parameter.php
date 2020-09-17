@@ -41,13 +41,12 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('detailbrg') ;?>">Persediaan Pias</a>
+								<a href="<?= base_url('dataasetsc') ?>">Persediaan Suku Cadang</a>
 							</li>
-
 							<li>
-								<a href="<?= base_url('barangmasuk') ;?>">Barang Masuk</a>
+								<a href="<?= base_url('asetkeluarsc') ?>">Aset Keluar</a>
 							</li>
-							<li class="active">Input Barang Masuk</li>
+							<li class="active">Input Aset Keluar</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -66,10 +65,8 @@
 					<!-- /section:basics/content.breadcrumbs -->
 						<div class="page-header">
 							<h1>
-								Form Input Barang Masuk
-								<small>
-									
-								</small>
+								Form Input Aset Keluar (Suku Cadang-Parameter)
+								
 							</h1>
 						</div><!-- /.page-header -->
 
@@ -79,119 +76,89 @@
 								<div class="form-horizontal">
 									<?= $this->session->flashdata('pesan'); ?>
 		                				<?php $user = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();?>
-		                				<?= form_open('', [], ['id_barang_masuk' => $id_barang_masuk, 'user_id' => $user['id']]); ?>
+		                			
 									<!-- #section:elements.form -->
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="id_barang_masuk"> ID Transaksi BM </label>
-
-										<div class="col-sm-9">
-											<input value="<?= $id_barang_masuk; ?>" type="text" readonly="readonly" class="col-xs-10 col-sm-5" >
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label for="tanggal_masuk" class="col-sm-3 control-label no-padding-right" > Tanggal Masuk</label>
-
-											<div class="row">
-												<div class="col-xs-8 col-sm-3">
-																<!-- #section:plugins/date-time.datepicker -->
-													<div class="input-group">
-														<input value="<?= set_value('tanggal_masuk'); ?>" class="form-control date-picker" id="tanggal_masuk" name="tanggal_masuk" type="text" data-date-format="yyyy-mm-dd" placeholder="tanggal masuk..." > 
-														<span class="input-group-addon">
-														<i class="fa fa-calendar bigger-110"></i>
-													</span>
-													 
-												</div>
-												<?= form_error('tanggal_masuk', '<small class="text-danger">', '</small>'); ?>
-											</div>
-										</div>
-
-										
-									</div>
-
-									<!-- /section:elements.form -->
-									<div class="space-4"></div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="barang_id"> Nama BM </label>
+										<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="parameter"> Parameter </label>
 
 										<div class="col-sm-4">
 											 <div class="input-group">
-											<select name="barang_id" id="barang_id" class="custom-select">
-												<option value="" selected disabled >Pilih Barang</option>
+											<select name="parameter" id="parameter" class="custom-select">
+												<option value="" >Pilih Parameter</option>
 
-												  <?php foreach ($barang as $b) : ?> 
-		                                    <option value="<?= $b['kode_brg'] ?>">kode:<?= $b['kode_brg'] . ' - ' . $b['nama_brg'] ?></option>
-		                                <?php endforeach; ?>				
+												
+												 <?php foreach ($parameter as $p) : ?>
+			                                        <option value="<?= $p['id']; ?>"><?= $p['nama_parameter']; ?></option>
+			                                    <?php endforeach; ?>
+															 				
 											</select>									
 										</div>
-										 <?= form_error('barang_id', '<small class="text-danger">', '</small>'); ?>
-										</div>
-									</div>
-
-
-									<div class="space-4"></div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="jenis"> Jenis </label>
-
-										<div class="col-sm-9">
-											<input readonly="" type="text" class="col-xs-10 col-sm-5" id="jenis" >
-											<span class="help-inline col-xs-12 col-sm-7">
-												<label class="middle">
-													
-												</label>
-											</span>
-										</div>
-									</div>
-
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="stok">Stok</label>
-
-										<div class="col-sm-9">
-											<div class="clearfix">
-												<input readonly="" class="col-xs-1" type="text" id="stok"  placeholder="" >
-											</div>
-
-											
-
-											
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="jumlah_masuk">Jumlah Masuk</label>
-
-										<div class="col-sm-9">
-											
-											<!-- #section:elements.form.input-icon -->
-											<span class="input-icon">
-												<input value="<?= set_value('jumlah_masuk'); ?>" name="jumlah_masuk" id="jumlah_masuk" type="number" class="form-control" placeholder="Jumlah masuk...">
-												<i class="ace-icon fa fa-leaf blue"></i>
-											</span>
-
-											
-											<!-- /section:elements.form.input-icon -->
 										
-											
 										</div>
 									</div>
 
-									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="barang"> Barang </label>
+
+										<div class="col-sm-4">
+											 <div class="input-group">
+											<select name="barang" id="barang" class="custom-select">
+												<option value=""  >Pilih barang</option>
+											</select>									
+										</div>
+										
+										</div>
+									</div>
+
 
 									<div class="space-4"></div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="total_stok">Total Stok</label>
+										<label class="col-sm-3 control-label no-padding-right" for="merk"> Merk </label>
 
-										<div class="col-sm-9">
-											<!-- #section:plugins/input.tag-input -->
-											<div class="inline">
-												<input readonly="" type="number"  id="total_stok"  placeholder="" >
-											</div>
+										<div class="col-sm-4">
+											 <div class="input-group">
+											<select name="merk" id="merk" class="custom-select">
+												<option value=""  >Pilih Merk</option>
 
-											<!-- /section:plugins/input.tag-input -->
+												 				
+											</select>									
+										</div>
+										
+										</div>
+									</div>
+
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="model"> Model </label>
+
+										<div class="col-sm-4">
+											 <div class="input-group">
+											<select name="model" id="model" class="custom-select">
+												<option value=""  >Pilih Model</option>
+
+												 				
+											</select>									
+										</div>
+										
+										</div>
+									</div>
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="no_seri"> No. Series </label>
+
+										<div class="col-sm-4">
+											 <div class="input-group">
+											<select name="no_seri" id="no_seri" class="custom-select">
+												<option value=""  >Pilih No. Series</option>
+
+												 				
+											</select>									
+										</div>
+										
 										</div>
 									</div>
 
@@ -202,7 +169,7 @@
 												Submit
 											</button>
 
-											&nbsp; &nbsp; &nbsp;
+											
 											<button class="btn" type="reset">
 												<i class="ace-icon fa fa-undo bigger-110"></i>
 												Reset
@@ -344,20 +311,82 @@
 		<script src="<?= base_url('assets/'); ?>js/ace/ace.searchbox-autocomplete.js"></script>
 
 		<!-- inline scripts related to this page -->
+
+		 <script>
+        $(document).ready(function() {
+            $('#parameter').change(function() {
+                var id = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('Parameter/getBarang') ?>",
+                    data: {
+                        id: id
+                    },
+                    dataType: "JSON",
+                    success: function(response) {
+                        $('#barang').html(response);
+                    }
+                });
+            });
+
+            $('#barang').change(function() {
+                var id = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('Parameter/getMerk') ?>",
+                    data: {
+                        id: id
+                    },
+                    dataType: "JSON",
+                    success: function(response) {
+                        $('#merk').html(response);
+                    }
+                });
+            });
+
+            $('#merk').change(function() {
+                var id = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('Parameter/getModel') ?>",
+                    data: {
+                        id: id
+                    },
+                    dataType: "JSON",
+                    success: function(response) {
+                        $('#model').html(response);
+                    }
+                });
+            });
+            $('#model').change(function() {
+                var id = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('Parameter/getSeries') ?>",
+                    data: {
+                        id: id
+                    },
+                    dataType: "JSON",
+                    success: function(response) {
+                        $('#no_seri').html(response);
+                    }
+                });
+            });
+        });
+    </script>
 		 <script type="text/javascript">
         let hal = '<?= $this->uri->segment(3); ?>';
-
-        let satuan = $('#satuan');
-        let jenis = $('#jenis');
+         let merk = $('#merk');
+        let type_id = $('#type_id');
         let stok = $('#stok');
         let total = $('#total_stok');
-        let jumlah = hal == 'barangmasuk' ? $('#jumlah_masuk') : $('#jumlah_keluar');
+        let jumlah = hal == 'asetmasuksc' ? $('#jumlah_masuk') : $('#jumlah_keluar');
 
-        $(document).on('change', '#barang_id', function() {
-            let url = '<?= base_url('detailbrg/getstok/'); ?>' + this.value;
+        $(document).on('change', '#aset_id', function() {
+            let url = '<?= base_url('dataasetsc/getstok/'); ?>' + this.value;
             $.getJSON(url, function(data) {
-                satuan.html(data.nama_satuan);
-                jenis.val(data.nama_jenis);
+                 merk.val(data.merk);
+                type_id.val(data.nama_type);
                 stok.val(data.stok);
                 total.val(data.stok);
                 jumlah.focus();

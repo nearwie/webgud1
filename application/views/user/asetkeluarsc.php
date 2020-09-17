@@ -37,7 +37,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
+								<a href="<?= base_url ('user') ;?>">Home</a>
 							</li>
 
 							<li>
@@ -164,7 +164,7 @@
 																
 
 																
-																<a class="red" href="<?= base_url('asetkeluarsc/delete/') . $ak['id_aset_keluar'] ?>">
+																<a class="red" href="<?= base_url('asetkeluarsc/delete/') . $ak['id_aset_keluar'] ?>" onclick="javascript: return confirm('Apakah yakin menghapus')">
 																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
 																</a>
 															</div>

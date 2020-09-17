@@ -41,24 +41,13 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('detailbrg') ;?>">Persediaan Pias</a>
+								<a href="<?= base_url ('detailbrg') ;?>">Pos Hujan OBS</a>
 							</li>
-
-							<li>
-								<a href="<?= base_url('barangmasuk') ;?>">Barang Masuk</a>
-							</li>
-							<li class="active">Input Barang Masuk</li>
+							<li class="active">Data Pos Hujan</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
+						
 
 						<!-- /section:basics/content.searchbox -->
 					</div>
@@ -66,9 +55,10 @@
 					<!-- /section:basics/content.breadcrumbs -->
 						<div class="page-header">
 							<h1>
-								Form Input Barang Masuk
+								Data Pos Hujan
 								<small>
-									
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									Edit Pos Hujan
 								</small>
 							</h1>
 						</div><!-- /.page-header -->
@@ -77,124 +67,84 @@
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
 								<div class="form-horizontal">
-									<?= $this->session->flashdata('pesan'); ?>
-		                				<?php $user = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();?>
-		                				<?= form_open('', [], ['id_barang_masuk' => $id_barang_masuk, 'user_id' => $user['id']]); ?>
+									 <?= $this->session->flashdata('pesan'); ?>
+                					 <?= form_open('', [], ); ?>
 									<!-- #section:elements.form -->
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="id_barang_masuk"> ID Transaksi BM </label>
+										<label class="col-sm-3 control-label no-padding-right" for="id_sta">STA ID</label>
 
-										<div class="col-sm-9">
-											<input value="<?= $id_barang_masuk; ?>" type="text" readonly="readonly" class="col-xs-10 col-sm-5" >
+										<div class="col-sm-3">
+											<input value="<?= set_value('id_sta', $pos['id_sta']); ?>" name="id_sta" id="id_sta" type="text" class="form-control" >
+                        				<?= form_error('id_sta', '<small class="text-danger">', '</small>'); ?>
+										</div>
+									</div>
+									
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="nama_pos">Nama Pos</label>
+
+										<div class="col-sm-3">
+											<input value="<?= set_value('nama_pos', $pos['nama_pos']); ?>" name="nama_pos" id="nama_pos" type="text" class="form-control" >
+                        				<?= form_error('nama_pos', '<small class="text-danger">', '</small>'); ?>
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="tanggal_masuk" class="col-sm-3 control-label no-padding-right" > Tanggal Masuk</label>
+										<label class="col-sm-3 control-label no-padding-right" for="wilayah">Kab/Kota</label>
 
-											<div class="row">
-												<div class="col-xs-8 col-sm-3">
-																<!-- #section:plugins/date-time.datepicker -->
-													<div class="input-group">
-														<input value="<?= set_value('tanggal_masuk'); ?>" class="form-control date-picker" id="tanggal_masuk" name="tanggal_masuk" type="text" data-date-format="yyyy-mm-dd" placeholder="tanggal masuk..." > 
-														<span class="input-group-addon">
-														<i class="fa fa-calendar bigger-110"></i>
-													</span>
-													 
-												</div>
-												<?= form_error('tanggal_masuk', '<small class="text-danger">', '</small>'); ?>
-											</div>
+										<div class="col-sm-3">
+											<input value="<?= set_value('wilayah', $pos['wilayah']); ?>" name="wilayah" id="wilayah" type="text" class="form-control" >
+                        				<?= form_error('wilayah', '<small class="text-danger">', '</small>'); ?>
 										</div>
-
-										
 									</div>
-
-									<!-- /section:elements.form -->
-									<div class="space-4"></div>
-
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="barang_id"> Nama BM </label>
+										<label class="col-sm-3 control-label no-padding-right" for="wilayah">Kab/Kota</label>
 
-										<div class="col-sm-4">
-											 <div class="input-group">
-											<select name="barang_id" id="barang_id" class="custom-select">
-												<option value="" selected disabled >Pilih Barang</option>
-
-												  <?php foreach ($barang as $b) : ?> 
-		                                    <option value="<?= $b['kode_brg'] ?>">kode:<?= $b['kode_brg'] . ' - ' . $b['nama_brg'] ?></option>
-		                                <?php endforeach; ?>				
-											</select>									
-										</div>
-										 <?= form_error('barang_id', '<small class="text-danger">', '</small>'); ?>
+										<div class="col-sm-3">
+											<input value="<?= set_value('wilayah', $pos['wilayah']); ?>" name="wilayah" id="wilayah" type="text" class="form-control" >
+                        				<?= form_error('wilayah', '<small class="text-danger">', '</small>'); ?>
 										</div>
 									</div>
-
-
-									<div class="space-4"></div>
-
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="jenis"> Jenis </label>
+										<label class="col-sm-3 control-label no-padding-right" for="pengamat">Pengamat</label>
 
-										<div class="col-sm-9">
-											<input readonly="" type="text" class="col-xs-10 col-sm-5" id="jenis" >
-											<span class="help-inline col-xs-12 col-sm-7">
-												<label class="middle">
-													
-												</label>
-											</span>
+										<div class="col-sm-3">
+											<input value="<?= set_value('pengamat', $pos['pengamat']); ?>" name="pengamat" id="pengamat" type="text" class="form-control" >
+                        				<?= form_error('pengamat', '<small class="text-danger">', '</small>'); ?>
 										</div>
 									</div>
+										<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="no_hp">No. HP</label>
 
-
+										<div class="col-sm-3">
+											<input value="<?= set_value('no_hp', $pos['no_hp']); ?>" name="no_hp" id="no_hp" type="text" class="form-control" >
+                        				<?= form_error('no_hp', '<small class="text-danger">', '</small>'); ?>
+										</div>
+									</div>
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="stok">Stok</label>
+										<label class="col-sm-3 control-label no-padding-right" for="koor">Koordinator</label>
 
-										<div class="col-sm-9">
-											<div class="clearfix">
-												<input readonly="" class="col-xs-1" type="text" id="stok"  placeholder="" >
-											</div>
-
-											
-
-											
+										<div class="col-sm-3">
+											<input value="<?= set_value('koor', $pos['koor']); ?>" name="koor" id="koor" type="text" class="form-control" >
+                        				<?= form_error('koor', '<small class="text-danger">', '</small>'); ?>
 										</div>
 									</div>
-
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="jumlah_masuk">Jumlah Masuk</label>
+										<label class="col-sm-3 control-label no-padding-right" for="keterangan">Keterangan</label>
 
-										<div class="col-sm-9">
-											
-											<!-- #section:elements.form.input-icon -->
-											<span class="input-icon">
-												<input value="<?= set_value('jumlah_masuk'); ?>" name="jumlah_masuk" id="jumlah_masuk" type="number" class="form-control" placeholder="Jumlah masuk...">
-												<i class="ace-icon fa fa-leaf blue"></i>
-											</span>
-
-											
-											<!-- /section:elements.form.input-icon -->
-										
-											
+										<div class="col-sm-3">
+											<input value="<?= set_value('keterangan', $pos['keterangan']); ?>" name="keterangan" id="keterangan" type="text" class="form-control" >
+                        				<?= form_error('keterangan', '<small class="text-danger">', '</small>'); ?>
 										</div>
 									</div>
+
+
 
 									
 
-									<div class="space-4"></div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="total_stok">Total Stok</label>
-
-										<div class="col-sm-9">
-											<!-- #section:plugins/input.tag-input -->
-											<div class="inline">
-												<input readonly="" type="number"  id="total_stok"  placeholder="" >
-											</div>
-
-											<!-- /section:plugins/input.tag-input -->
-										</div>
-									</div>
-
+								
+									<!-- /section:elements.form -->
+									
 									<div class="clearfix form-actions">
 										<div class="col-md-offset-3 col-md-9">
 											<button class="btn btn-info" type="submit">
@@ -202,11 +152,7 @@
 												Submit
 											</button>
 
-											&nbsp; &nbsp; &nbsp;
-											<button class="btn" type="reset">
-												<i class="ace-icon fa fa-undo bigger-110"></i>
-												Reset
-											</button>
+											
 										</div>
 									</div>
 								
@@ -255,17 +201,7 @@
 
 						&nbsp; &nbsp;
 						<span class="action-buttons">
-							<a href="#">
-								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-							</a>
-
-							<a href="#">
-								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-							</a>
-
-							<a href="#">
-								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
-							</a>
+							
 						</span>
 					</div>
 
@@ -345,7 +281,7 @@
 
 		<!-- inline scripts related to this page -->
 		 <script type="text/javascript">
-        let hal = '<?= $this->uri->segment(3); ?>';
+        let hal = '<?= $this->uri->segment(1); ?>';
 
         let satuan = $('#satuan');
         let jenis = $('#jenis');
@@ -354,7 +290,7 @@
         let jumlah = hal == 'barangmasuk' ? $('#jumlah_masuk') : $('#jumlah_keluar');
 
         $(document).on('change', '#barang_id', function() {
-            let url = '<?= base_url('detailbrg/getstok/'); ?>' + this.value;
+            let url = '<?= base_url('barang/getstok/'); ?>' + this.value;
             $.getJSON(url, function(data) {
                 satuan.html(data.nama_satuan);
                 jenis.val(data.nama_jenis);
@@ -773,8 +709,8 @@
 		</script>
 
 		<!-- the following scripts are used in demo only for onpage help and you don't need them -->
-		<link rel="stylesheet" href="<?= base_url('assets/'); ?>css/ace.onpage-help.css" >
-		<link rel="stylesheet" href="<?= base_url('assets/'); ?>docs/assets/js/themes/sunburst.css" >
+		<link rel="stylesheet" href="<?= base_url('assets/'); ?>css/ace.onpage-help.css" />
+		<link rel="stylesheet" href="<?= base_url('assets/'); ?>docs/assets/js/themes/sunburst.css" />
 
 		<script type="text/javascript"> ace.vars['base'] = '..'; </script>
 		<script src="<?= base_url('assets/'); ?>js/ace/elements.onpage-help.js"></script>

@@ -45,52 +45,51 @@ class Poshujan extends CI_Controller
     {
        
        
+        $this->form_validation->set_rules('id_sta', 'id_sta', 'required', [
+            'required' => 'Kolom STA ID wajib diisi'
+        ]);
+        $this->form_validation->set_rules('nama_pos', 'nama_pos', 'required', [
+            'required' => 'Kolom Pos Hujan wajib diisi' 
+        ]);
+        $this->form_validation->set_rules('wilayah', 'wilayah', 'required', [
+            'required' => 'Kolom Wilayah wajib diisi'
+        ]);
+        $this->form_validation->set_rules('pengamat', 'pengamat', 'required', [
+            'required' => 'Kolom Pengamat wajib diisi'
+        ]);
+        $this->form_validation->set_rules('no_hp', 'no_hp', 'required', [
+            'required' => 'Kolom No.HP wajib diisi'
+        ]);
+        $this->form_validation->set_rules('koor', 'koor', 'required', [
+            'required' => 'Kolom Koordinator wajib diisi'
+        ]);
+        $this->form_validation->set_rules('keterangan', 'keterangan', 'required', [
+            'required' => 'Kolom Keterangan wajib diisi'
+        ]);
         
-		$this->form_validation->set_rules('kode_brg', 'kode_brg', 'required', [
-			'required' => 'Kolom Kode Barang wajib diisi'
-		]);
-		$this->form_validation->set_rules('nama_brg', 'nama_brg', 'required', [
-			'required' => 'Kolom Nama Barang wajib diisi' 
-		]);
-		$this->form_validation->set_rules('jenis_id', 'jenis_id', 'required', [
-			'required' => 'Kolom Jenis wajib diisi'
-		]);
-		$this->form_validation->set_rules('satuan_id', 'satuan_id', 'required', [
-			'required' => 'Kolom S/N wajib diisi'
-		]);
-		
-		
  
         if ($this->form_validation->run() === FALSE)
         {
-        	 $data['title'] = 'Tambah Barang';        
-       		 $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
+             $data['title'] = 'Tambah Pos Hujan';        
+             $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
 
-        	$data['jenis'] = $this->barangm->get('jenis');
-            $data['satuan'] = $this->barangm->get('satuan');
-
-            $kode_terakhir = $this->barangm->getMax('barang', 'kode_brg');
-            $kode_tambah = substr($kode_terakhir, -3, 3);
-            $kode_tambah++;
-            $number = str_pad($kode_tambah, 3, '0', STR_PAD_LEFT);
-            $data['kode_brg'] = 'B' . $number;
-
+            
           
-			$this->load->view('user/add_barang', $data);
-			
+            $this->load->view('user/add_poshujan', $data);
+            
         }
         else
         {
 
-        	$input = $this->input->post(null, true);
-            $insert = $this->barangm->insert('barang', $input);
+            $input = $this->input->post(null, true);
+            $insert = $this->poshujanm->insert('tbl_poshujan', $input);
 
             if ($insert) {
                 set_pesan('data berhasil disimpan');
-                redirect('detailbrg');
+                redirect('poshujan');
             } else {
                 set_pesan('gagal menyimpan data');
-                redirect('user/add_barang');
+                redirect('user/add_poshujan');
             }
         }
     }
@@ -101,36 +100,41 @@ class Poshujan extends CI_Controller
         $id = encode_php_tags($getId);
       
         
-        $data['title'] = 'Edit Barang';        
+        $data['title'] = 'Edit Pos Hujan';        
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
         
-		$this->load->model('Barang_model');
+		$this->load->model('Poshujan_model');
         
         
-  
-		
-		$this->form_validation->set_rules('nama_brg', 'nama_brg', 'required', [
-			'required' => 'Kolom Nama Barang wajib diisi' 
-		]);
-		$this->form_validation->set_rules('jenis_id', 'jenis_id', 'required', [
-			'required' => 'Kolom Jenis wajib diisi'
-		]);
-        $this->form_validation->set_rules('satuan_id', 'satuan_id', 'required', [
-            'required' => 'Kolom Jenis wajib diisi'
+        $this->form_validation->set_rules('id_sta', 'id_sta', 'required', [
+            'required' => 'Kolom STA ID wajib diisi'
         ]);
-         $this->form_validation->set_rules('no_seri', 'Serial Number', 'required', [
-            'required' => 'Kolom Serial Number wajib diisi'
+        $this->form_validation->set_rules('nama_pos', 'nama_pos', 'required', [
+            'required' => 'Kolom Pos Hujan wajib diisi' 
         ]);
-	
+        $this->form_validation->set_rules('wilayah', 'wilayah', 'required', [
+            'required' => 'Kolom Wilayah wajib diisi'
+        ]);
+        $this->form_validation->set_rules('pengamat', 'pengamat', 'required', [
+            'required' => 'Kolom Pengamat wajib diisi'
+        ]);
+        $this->form_validation->set_rules('no_hp', 'no_hp', 'required', [
+            'required' => 'Kolom No.HP wajib diisi'
+        ]);
+        $this->form_validation->set_rules('koor', 'koor', 'required', [
+            'required' => 'Kolom Koordinator wajib diisi'
+        ]);
+        $this->form_validation->set_rules('keterangan', 'keterangan', 'required', [
+            'required' => 'Kolom Keterangan wajib diisi'
+        ]);
  
         if ($this->form_validation->run() === FALSE)
         {
 
-            $data['jenis'] = $this->barangm->get('jenis');
-            $data['satuan'] = $this->barangm->get('satuan');
-            $data['barang'] = $this->barangm->get('barang', ['kode_brg' => $id]);
+            
+            $data['pos'] = $this->poshujanm->get('tbl_poshujan', ['id_sta' => $id]);
            
-			$this->load->view('User/edit_barang', $data);
+			$this->load->view('User/edit_poshujan', $data);
 		
  
         }
@@ -139,17 +143,36 @@ class Poshujan extends CI_Controller
 
 
             $input = $this->input->post(null, true);
-            $update = $this->barangm->update('barang', 'kode_brg', $id, $input);
+            $update = $this->poshujanm->update('tbl_poshujan', 'id_sta', $id, $input);
             
            if ($update) {
                 set_pesan('data berhasil disimpan');
-                redirect('detailbrg');
+                redirect('poshujan');
             } else {
                 set_pesan('gagal menyimpan data');
-                redirect('detailbrg/edit/' . $id);
+                redirect('poshujan/edit/' . $id);
             }
         }
     }
+
+
+    public function delete()
+    {   $this->load->model('Poshujan_model');
+        $id = $this->uri->segment(3);
+        
+        if (empty($id))
+        {
+            $this->session->set_flashdata('message',  '<div class="alert alert-danger" role="alert">Gagal hapus data pos hujan </div>');
+        redirect( base_url() . 'poshujan'); 
+        }
+                
+        $a = $this->poshujanm->get_brg_by_id($id);
+        
+        $this->poshujanm->delete_brg($id);   
+             $this->session->set_flashdata('message',  '<div class="alert alert-success" role="alert">Berhasil hapus data pos hujan </div>');
+        redirect( base_url() . 'poshujan');        
+    }
+
 
 
 

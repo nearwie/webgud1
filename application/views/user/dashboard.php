@@ -41,9 +41,9 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('dataaset') ;?>">Persediaan Toolkit</a>
+								<a href="<?= base_url ('detailbrg') ;?>">Data Barang</a>
 							</li>
-							<li class="active">Notifikasi Dynamis</li>
+							<li class="active">Daftar Barang</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
@@ -91,16 +91,17 @@
 								<!-- PAGE CONTENT BEGINS -->
 								<div class="row">
 
-								<div class="col-xl-12 infobox-container">
+								<div class="col-sm-12 infobox-container">
 										<!-- #section:pages/dashboard.infobox -->
-										<div class="infobox infobox-purple">
+										<div class="infobox infobox-green">
 											<div class="infobox-icon">
 												<i class="ace-icon fa fa-inbox"></i>
 											</div>
+											
 
 											<div class="infobox-data">
-												<span class="infobox-data-number"><?= $aset; ?></span>
-												<div class="infobox-content">Total Data Toolkit</div>
+												<span class="infobox-data-number"><?= $barang; ?></span>
+												<div class="infobox-content">Total Data Barang</div>
 											</div>
 
 											<!-- #section:pages/dashboard.infobox.stat -->
@@ -109,20 +110,31 @@
 											<!-- /section:pages/dashboard.infobox.stat -->
 										</div>
 
-										<div class="infobox infobox-blue">
+										<div class="infobox infobox-orange">
 											<div class="infobox-icon">
 												<i class="ace-icon fa fa-filter"></i>
 											</div>
 
 											<div class="infobox-data">
 												<span class="infobox-data-number"><?= $stok; ?></span>
-												<div class="infobox-content">Total Stok Toolkit</div>
+												<div class="infobox-content">Total Stok Barang</div>
 											</div>
 
 											
 										</div>
 
-										
+										<div class="infobox infobox-red">
+											<div class="infobox-icon">
+												<i class="ace-icon fa fa-users"></i>
+											</div>
+
+											<div class="infobox-data">
+												<span class="infobox-data-number"><?= $pengguna; ?></span>
+												<div class="infobox-content">Total User</div>
+											</div>
+											
+										</div>
+
 										
 
 										
@@ -132,9 +144,81 @@
 							</div>
 							<div class="space-6"></div>
 
-							
+								<div class="row">
 									<!-- #section:pages/pricing.large -->
+									<div class="col-xl-8 col-sm-6 pricing-box">
+										<div class="widget-box widget-color-purple">
+											<div class="widget-header">
+												<h5 class="widget-title bigger lighter">Total Transaksi Barang Perbulan pada Tahun <?= date('Y'); ?></h5>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main">
+															<div class="card-body">
+									                            <div class="chart-area">
+									                                <div class="chartjs-size-monitor">
+									                                    <div class="chartjs-size-monitor-expand">
+									                                        <div class=""></div>
+									                                    </div>
+									                                    <div class="chartjs-size-monitor-shrink">
+									                                        <div class=""></div>
+									                                    </div>
+									                                </div>
+									                                <canvas id="myAreaChart" width="400" height="320" class="chartjs-render-monitor" style="display: block; width: 669px; height: 320px;"></canvas>
+									                            </div>
+									                        </div>
+									                    </div>
+									               
+																
+
+													<hr />
+													
+												</div>
+
+												
+											</div>
+										</div>
 									
+									<div class="col-xl-4 col-sm-6 pricing-box">
+										<div class="widget-box widget-color-blue">
+											<div class="widget-header">
+												<h5 class="widget-title bigger lighter">Transaksi Barang</h5>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main">
+														<div class="card-body">
+								                            <div class="chart-pie pt-4 pb-2">
+								                                <div class="chartjs-size-monitor">
+								                                    <div class="chartjs-size-monitor-expand">
+								                                        <div class=""></div>
+								                                    </div>
+								                                    <div class="chartjs-size-monitor-shrink">
+								                                        <div class=""></div>
+								                                    </div>
+								                                </div>
+								                                <canvas id="myPieChart" width="302" height="245" class="chartjs-render-monitor" style="display: block; width: 302px; height: 297px;"></canvas>
+								                            </div>
+								                            <div class="mt-4 text-center small">
+								                                <span class="mr-2">
+								                                    <i class="ace-icon fa fa-circle fa-2x red"></i> Barang Keluar
+								                                </span>
+
+								                                <span class="mr-2">
+								                                    <i class="ace-icon fa fa-circle fa-2x green"></i> Barang Masuk
+								                                </span>
+								                            </div>
+								                        </div>
+								                    </div>
+													<hr />
+													
+												</div>
+
+												
+											</div>
+										</div>
+									</div>
+
 								<div class="space-6"></div>
 
 			
@@ -151,7 +235,7 @@
 									<div class="col-xs-6 col-sm-4 pricing-box">
 										<div class="widget-box widget-color-dark">
 											<div class="widget-header">
-												<h5 class="widget-title bigger lighter">Stok Aset Minimum</h5>
+												<h5 class="widget-title bigger lighter">Stok Barang Minimum</h5>
 											</div>
 
 											<div class="widget-body">
@@ -160,28 +244,28 @@
 								                            <table class="table mb-0 text-center table-striped table-sm">
 								                                <thead>
 								                                    <tr>
-								                                        <th>Aset</th>
+								                                        <th>Barang</th>
 								                                        <th>Stok</th>
 								                                        <th>Pasok</th>
 								                                    </tr>
 								                                </thead>
 								                                <tbody>
 								                                    <?php
-								                                    if ($aset_min) :
-								                                        foreach ($aset_min as $b) :
+								                                    if ($barang_min) :
+								                                        foreach ($barang_min as $b) :
 								                                            ?>
 								                                            <tr>
 								                                                <td><?= $b['nama_brg']; ?></td>
 								                                                <td><?= $b['stok']; ?></td>
 								                                                <td>
-								                                                    <a href="<?= base_url('asetmasuk/add/') . $b['kode_brg'] ?>" class="btn btn-warning btn-sm"><i class="fa fa-plus"></i></a>
+								                                                    <a href="<?= base_url('barangmasuk/add/') . $b['kode_brg'] ?>" class="btn btn-warning btn-sm"><i class="fa fa-plus"></i></a>
 								                                                </td>
 								                                            </tr>
 								                                        <?php endforeach; ?>
 								                                    <?php else : ?>
 								                                        <tr>
 								                                            <td colspan="3" class="text-center">
-								                                                Tidak ada aset stok minim
+								                                                Tidak ada barang stok minim
 								                                            </td>
 								                                        </tr>
 								                                    <?php endif; ?>
@@ -199,7 +283,7 @@
 									<div class="col-xs-6 col-sm-4 pricing-box">
 										<div class="widget-box widget-color-green">
 											<div class="widget-header">
-												<h5 class="widget-title bigger lighter">Transaksi Terakhir Aset Masuk</h5>
+												<h5 class="widget-title bigger lighter">Transaksi Terakhir Barang Masuk</h5>
 											</div>
 
 											<div class="widget-body">
@@ -208,12 +292,12 @@
 						                                <thead>
 						                                    <tr>
 						                                        <th>Tanggal</th>
-						                                        <th>Aset</th>
+						                                        <th>Barang</th>
 						                                        <th>Jumlah</th>
 						                                    </tr>
 						                                </thead>
 						                                <tbody>
-						                                    <?php foreach ($transaksi['aset_masuk'] as $tbm) : ?>
+						                                    <?php foreach ($transaksi['barang_masuk'] as $tbm) : ?>
 						                                        <tr>
 						                                            <td><strong><?= $tbm['tanggal_masuk']; ?></strong></td>
 						                                            <td><?= $tbm['nama_brg']; ?></td>
@@ -232,7 +316,7 @@
 									<div class="col-xs-6 col-sm-4 pricing-box">
 										<div class="widget-box widget-color-red">
 											<div class="widget-header">
-												<h5 class="widget-title bigger lighter">5 Transaksi Terakhir Aset Keluar</h5>
+												<h5 class="widget-title bigger lighter">5 Transaksi Terakhir Barang Keluar</h5>
 											</div>
 
 											<div class="widget-body">
@@ -241,12 +325,12 @@
 						                                <thead>
 						                                    <tr>
 						                                        <th>Tanggal</th>
-						                                        <th>Aset</th>
+						                                        <th>Barang</th>
 						                                        <th>Jumlah</th>
 						                                    </tr>
 						                                </thead>
 						                                <tbody>
-						                                    <?php foreach ($transaksi['aset_keluar'] as $tbk) : ?>
+						                                    <?php foreach ($transaksi['barang_keluar'] as $tbk) : ?>
 						                                        <tr>
 						                                            <td><strong><?= $tbk['tanggal_keluar']; ?></strong></td>
 						                                            <td><?= $tbk['nama_brg']; ?></td>

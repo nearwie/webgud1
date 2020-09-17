@@ -25,7 +25,7 @@
 						</button>
 
 						<button class="btn btn-danger">
-							<a href="<?= base_url('databarang') ;?>" >
+							<a href="<?= base_url('dataaset') ;?>" >
 							<i class="ace-icon fa fa-cogs white"></i>
 							</a>
 
@@ -48,8 +48,8 @@
 				<ul class="nav nav-list">
 					<li class="">
 						<a href="<?= base_url('user') ;?>">
-							<i class="menu-icon fa fa-tachometer"></i>
-							<span class="menu-text"> Dashboard </span>
+							<i class="menu-icon fa fa-home"></i>
+							<span class="menu-text"> Home </span>
 						</a>
 
 						<b class="arrow"></b>
@@ -57,7 +57,7 @@
 
 					<li class="">
 						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-desktop"></i>
+							<i class="menu-icon fa fa-credit-card"></i>
 							<span class="menu-text">
 								Persediaan Pias
 							</span>
@@ -353,7 +353,7 @@
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-cloud"></i>
 							<span class="menu-text">
-								Pos Hujan
+								Pos Hujan OBS
 							</span>
 
 							<b class="arrow fa fa-angle-down"></b>
@@ -392,12 +392,111 @@
 					</li>
 
 
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-flask"></i>
+							<span class="menu-text">
+								Persediaan SU-CA 2
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							
+							
+
+							<li class="">
+								<a href="<?= base_url('dataasetsc/dynamis') ;?>">
+									<i class="menu-icon fa fa-caret-right "></i>
+									Notifikasi Dynamis
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="<?= base_url('asetmasuksc') ;?>">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Aset Masuk 
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="<?= base_url('C_asetkeluar') ?>">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Aset Keluar 
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									Data Aset
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="<?= base_url('laporanaset') ?>">
+											<i class="menu-icon fa fa-leaf green"></i>
+											Laporan SU-CA
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-pencil orange"></i>
+
+											Daftar Aset
+											<b class="arrow fa fa-angle-down"></b>
+										</a>
+
+										<b class="arrow"></b>
+
+										<ul class="submenu">
+											<li class="">
+												<a href="<?= base_url('dataasetsc/tambah') ;?>">
+													<i class="menu-icon fa fa-plus purple"></i>
+													Add Aset SU-CA
+												</a>
+
+												<b class="arrow"></b>
+											</li>
+
+											<li class="">
+												<a href="<?= base_url('dataasetsc') ;?>">
+													<i class="menu-icon fa fa-eye pink"></i>
+													Detail Aset SU-CA
+												</a>
+
+												<b class="arrow"></b>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+
+
 
 
 
 					
 					<li class="">
-						<a href="<?= base_url('wilayah') ;?>">
+						<a href="<?= base_url('parameter') ;?>">
 							<i class="menu-icon fa fa-globe"></i>
 							<span class="menu-text"> Wilayah </span>
 						</a>

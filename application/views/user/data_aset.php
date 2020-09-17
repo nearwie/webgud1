@@ -37,7 +37,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
+								<a href="<?= base_url ('user') ;?>">Home</a>
 							</li>
 							<li>
 								<a href="<?= base_url ('dataasetsc') ;?>">Persediaan Suku Cadang</a>

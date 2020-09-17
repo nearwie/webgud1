@@ -34,7 +34,7 @@
 			if('ontouchstart' in document.documentElement) document.write("<script src='<?= base_url('assets/'); ?>js/jquery.mobile.custom.js'>"+"<"+"/script>");
 		</script>
 		<script src="<?= base_url('assets/'); ?>js/bootstrap.js"></script>
-		 <?php if ($this->uri->segment(1) == 'user') : ?>
+		 <?php if ($this->uri->segment(1) == 'dashboard') : ?>
         <!-- Chart -->
         <script src="<?= base_url(); ?>assets/chart.js/Chart.min.js"></script>
 
