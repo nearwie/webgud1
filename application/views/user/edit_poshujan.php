@@ -41,7 +41,7 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('detailbrg') ;?>">Pos Hujan OBS</a>
+								<a href="<?= base_url ('poshujan') ;?>">Pos Hujan OBS</a>
 							</li>
 							<li class="active">Data Pos Hujan</li>
 						</ul><!-- /.breadcrumb -->

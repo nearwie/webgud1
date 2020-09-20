@@ -41,20 +41,13 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('detailbrg') ;?>">Data Barang</a>
+								<a href="<?= base_url ('satuan') ;?>">Data Satuan</a>
 							</li>
-							<li class="active">Daftar Satuan Barang</li>
+							
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
+						
 
 						<!-- /section:basics/content.searchbox -->
 					</div>
@@ -93,7 +86,7 @@
           							<?= $this->session->flashdata('message'); ?>
           							<?= $this->session->flashdata('pesan'); ?>
 
-										<h3 class="header smaller lighter blue">Data Barang</h3>
+										<h3 class="header smaller lighter blue">Data Satuan</h3>
 										<div class="pull-right tableTools-container"></div>
 										</div>
 										<div class="col-auto">

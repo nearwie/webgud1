@@ -23,7 +23,7 @@ class  Barangmasuk extends CI_Controller
 
     public function index ()
     {   
-        $data['title'] = 'Daftar Barang masuk';
+        $data['title'] = 'Input Stok Masuk';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
         $this->load->library('session');
          $data['barangmasuk'] = $this->barangm->getBarangMasuk();

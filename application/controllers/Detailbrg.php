@@ -275,4 +275,47 @@ public function get_barang(){
         
     }
 
+
+    public function barcode(){
+
+        $id = $this->uri->segment(3);
+        
+        if (empty($id))
+        {
+            redirect('detailbrg');
+        }
+         $data['title'] = 'Barcode';        
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
+
+        $data['bar'] = $this->barangm->get_barcode_by_id($id);
+    
+        $this->load->view('user/bc_dtbarang', $data);
+        
+      
+         }
+
+        public function cetakBarcode(){
+             $id = $this->uri->segment(3);
+        
+        if (empty($id))
+        {
+            redirect('detailbrg');
+        }
+        
+    
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
+        $user = $this->session->userdata('email');
+        $this->load->library('session');
+
+        $this->load->model(array('Laporan_model'));
+
+        
+        $data['bar'] = $this->barangm->get_barcode_by_id($id);
+        
+        $this->load->library('pdf');
+        $this->pdf->load_barcode('user/bc_cetak',$data);
+
+    }
+    
+
 }

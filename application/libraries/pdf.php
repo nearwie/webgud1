@@ -46,6 +46,21 @@ public function load_view($view, $data = array())
     // Output the generated PDF to Browser
     $dompdf->stream("laporan-". $time, array('Attachment' => 0 ));
 }
+
+public function load_barcode($view, $data = array())
+{
+    $dompdf = new Dompdf();
+    $html = $this->ci()->load->view($view, $data, TRUE);
+    $dompdf->loadHtml($html);
+    // (Optional) Setup the paper size and orientation
+    $dompdf->setPaper('A4', 'potrait');
+    // Render the HTML as PDF
+    $dompdf->render();
+    $time = time();
+    // Output the generated PDF to Browser
+    $dompdf->stream("barcode-". $time, array('Attachment' => 0 ));
+}
+
 }
 
 

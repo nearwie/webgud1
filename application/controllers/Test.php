@@ -136,3 +136,114 @@ class Test extends CI_Controller
  $this->db->join('tbl_barangprm r', 'bk.barang = r.id');
         $this->db->join('tbl_merk k', 'bk.merk = k.id');
         $this->db->join('tbl_model m', 'bk.model = m.id');
+<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-flask"></i>
+							<span class="menu-text">
+								Persediaan SU-CA 2
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							
+							
+
+							<li class="">
+								<a href="<?= base_url('dataasetsc/dynamis') ;?>">
+									<i class="menu-icon fa fa-caret-right "></i>
+									Notifikasi Dynamis
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="<?= base_url('asetmasuksc') ;?>">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Aset Masuk 
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="<?= base_url('C_asetkeluar') ?>">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Aset Keluar 
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									Data Aset
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="<?= base_url('laporanaset') ?>">
+											<i class="menu-icon fa fa-leaf green"></i>
+											Laporan SU-CA
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-pencil orange"></i>
+
+											Daftar Aset
+											<b class="arrow fa fa-angle-down"></b>
+										</a>
+
+										<b class="arrow"></b>
+
+										<ul class="submenu">
+											<li class="">
+												<a href="<?= base_url('dataasetsc/tambah') ;?>">
+													<i class="menu-icon fa fa-plus purple"></i>
+													Add Aset SU-CA
+												</a>
+
+												<b class="arrow"></b>
+											</li>
+
+											<li class="">
+												<a href="<?= base_url('dataasetsc') ;?>">
+													<i class="menu-icon fa fa-eye pink"></i>
+													Detail Aset SU-CA
+												</a>
+
+												<b class="arrow"></b>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+
+
+
+
+
+					
+					<li class="">
+						<a href="<?= base_url('parameter') ;?>">
+							<i class="menu-icon fa fa-globe"></i>
+							<span class="menu-text"> Wilayah </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>

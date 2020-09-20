@@ -44,14 +44,7 @@
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" >
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
+						
 
 						<!-- /section:basics/content.searchbox -->
 					</div>
@@ -140,7 +133,7 @@
 																		</p>
 												
 																		<p align="justify">
-																			Aplikasi ini bisa memberikan kemudahan dalam proses pengecekan suku cadang / aset peralatan yang masuk maupun yang keluar, memberikan informasi kondisi suku cadang / aset peralatan, serta membantu dalam proses pelacakan lokasi suku cadang / aset peralatan berada. Sistem ini juga memberikan cetak laporan berdasarkan harian, mingguan, dan bulanan.
+																			Aplikasi ini bisa memberikan kemudahan dalam proses pengecekan suku cadang / aset peralatan yang masuk maupun yang keluar, memberikan informasi persediaan suku cadang / aset peralatan, serta membantu dalam proses pelacakan lokasi suku cadang / aset peralatan berada. Sistem ini juga memberikan cetak laporan berdasarkan harian, mingguan, dan bulanan.
 																		</p>
 																							
 																		</p>

@@ -43,6 +43,19 @@ class Barang_model extends CI_Model
         return count($this->db->get('barang_keluar')->result_array());
     }
 
+     public function get_barcode_by_id($id = 0)
+    {
+        if ($id === 0)
+        {
+            $query = $this->db->get('barang');
+            return $query->result_array();
+        }
+ 
+        $query = $this->db->get_where('barang', array('kode_brg' => $id));
+        return $query->row_array();
+    }
+
+
 
 
 

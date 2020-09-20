@@ -40,9 +40,9 @@
 								<a href="<?= base_url ('user') ;?>">Home</a>
 							</li>
 							<li>
-								<a href="<?= base_url ('dataasetsc') ;?>">Pos Hujan Kerjasama</a>
+								<a href="<?= base_url ('Poshujan') ;?>">Pos Hujan Kerjasama</a>
 							</li>
-							<li class="active">Pos Hujan Kerjasama</li>
+							
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->

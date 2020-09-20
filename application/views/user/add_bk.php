@@ -39,25 +39,19 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="<?= base_url ('user') ;?>">Home</a>
 							</li>
+
 							<li>
-								<a href="<?= base_url ('detailbrg') ;?>">Persediaan Pias</a>
+								<a href="<?= base_url ('pias') ;?>">Data Pias</a>
 							</li>
 
 							<li>
-								<a href="<?= base_url('barangkeluar') ?>">Barang Keluar</a>
+								<a href="<?= base_url('barangkeluar') ;?>">Historis Stok Keluar</a>
 							</li>
-							<li class="active">Input Barang Keluar</li>
+							<li class="active">Input Stok Keluar</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
+						
 
 						<!-- /section:basics/content.searchbox -->
 					</div>
@@ -65,7 +59,7 @@
 					<!-- /section:basics/content.breadcrumbs -->
 						<div class="page-header">
 							<h1>
-								Form Input Barang Keluar (Pias)
+								Form Input Barang Keluar 
 								<small>
 									
 								</small>

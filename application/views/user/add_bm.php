@@ -34,6 +34,7 @@
 							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
 						</script>
 
+						
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
@@ -41,32 +42,24 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('detailbrg') ;?>">Persediaan Pias</a>
+								<a href="<?= base_url ('pias') ;?>">Data Pias</a>
 							</li>
 
 							<li>
-								<a href="<?= base_url('barangmasuk') ;?>">Barang Masuk</a>
+								<a href="<?= base_url('barangmasuk') ;?>">Historis Stok Masuk</a>
 							</li>
-							<li class="active">Input Barang Masuk</li>
+							<li class="active">Input Stok Masuk</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
-
+						
 						<!-- /section:basics/content.searchbox -->
 					</div>
 
 					<!-- /section:basics/content.breadcrumbs -->
 						<div class="page-header">
 							<h1>
-								Form Input Barang Masuk
+								Form Input Barang Masuk 
 								<small>
 									
 								</small>

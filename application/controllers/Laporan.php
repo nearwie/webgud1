@@ -27,7 +27,7 @@ class Laporan extends CI_Controller
             'required' => 'Kolom Periode Tanggal wajib diisi']);
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = "Laporan Transaksi";
+            $data['title'] = "Laporan Transaksi (Pias)";
             
 			$this->load->view('user/laporan', $data);
 			

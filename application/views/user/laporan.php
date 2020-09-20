@@ -41,21 +41,13 @@
 							</li>
 
 							<li>
-								<a href="#">Data Barang</a>
+								<a href="<?= base_url ('pias') ;?>">Data Pias</a>
 							</li>
-							<li class="active">Daftar Barang</li>
+							<li class="active">Laporan Transaksi</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" >
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
-
+					
 						<!-- /section:basics/content.searchbox -->
 					</div>
 
@@ -145,7 +137,7 @@
 											                <?= $this->session->flashdata('pesan'); ?>
 											                <?= form_open(); ?>
 											                <div class="row form-group">
-											                    <label class="col-md-3 text-md-right" for="transaksi">Laporan Mutasi</label>
+											                    <label class="col-md-3 text-md-right" for="transaksi">Laporan Transaksi Pias</label>
 											                    <div class="col-md-9">
 											                        <div class="custom-control custom-radio">
 											                            <input value="barang_masuk" type="radio" id="barang_masuk" name="transaksi" class="custom-control-input">

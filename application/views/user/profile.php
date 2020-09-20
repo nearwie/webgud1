@@ -45,15 +45,7 @@
 
 
 						<!-- #section:basics/content.searchbox -->
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
-
+						
 						<!-- /section:basics/content.searchbox -->
 					</div>
 
@@ -108,9 +100,9 @@
 											<!-- #section:pages/profile.contact -->
 											<div class="profile-contact-info">
 												<div class="profile-contact-links align-left">
-													<a href="<?= base_url ('addbrgmasuk') ;?>" class="btn btn-link">
-														<i class="ace-icon fa fa-plus-circle bigger-80 green"></i>
-														 Barang Masuk
+													<a href="<?= base_url ('user') ;?>" class="btn btn-link">
+														<i class="ace-icon fa fa-home bigger-80 green"></i>
+														 Home
 													</a>
 
 													<a href="<?= base_url ('addbrgkeluar') ;?>" class="btn btn-link">

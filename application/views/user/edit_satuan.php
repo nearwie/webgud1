@@ -41,20 +41,13 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('detailbrg') ;?>">Persediaan Pias</a>
+								<a href="<?= base_url ('satuan') ;?>">Data Satuan</a>
 							</li>
-							<li class="active">Daftar Barang</li>
+							<li class="active">Edit Satuan</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
+						
 
 						<!-- /section:basics/content.searchbox -->
 					</div>
@@ -62,7 +55,7 @@
 					<!-- /section:basics/content.breadcrumbs -->
 						<div class="page-header">
 							<h1>
-								Daftar Barang
+								Data Satuan
 								<small>
 									<i class="ace-icon fa fa-angle-double-right"></i>
 									Edit Satuan Barang

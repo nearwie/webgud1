@@ -14,7 +14,7 @@ class  Riwayatpos extends CI_Controller
         $this->load->helper('url');
         $this->load->helper('form');
         
-        $this->load->model('Asetsc_model', 'asetscm');
+        $this->load->model('Phobs_model', 'obsm');
         $this->load->library('form_validation');
         //$this->load->model('leave_model');
     }
@@ -26,7 +26,7 @@ class  Riwayatpos extends CI_Controller
         $data['title'] = 'Riwayat Kegiatan Pos Hujan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')]) -> row_array();
         $this->load->library('session');
-         $data['riwayat'] = $this->asetscm->getAsetKeluar();
+         $data['riwayat'] = $this->obsm->getBarangKeluar();
          
         
        

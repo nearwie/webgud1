@@ -41,20 +41,13 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('detailbrg') ;?>">Persediaan Pias</a>
+								<a href="<?= base_url ('pias') ;?>">Data Pias</a>
 							</li>
 							<li class="active">Daftar Barang</li>
 						</ul><!-- /.breadcrumb -->
 
 						<!-- #section:basics/content.searchbox -->
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" >
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
+						
 
 						<!-- /section:basics/content.searchbox -->
 					</div>
@@ -97,8 +90,9 @@
 											<div class="widget-header widget-header-large">
 												<h3 class="widget-title grey lighter">
 													<i class="ace-icon "></i>
-													Data Barang
+													Data Pias
 												</h3>
+
 
 												<!-- #section:pages/invoice.info -->
 												<div class="widget-toolbar no-border invoice-info">
@@ -117,25 +111,60 @@
 												</div>
 
 												<!-- /section:pages/invoice.info -->
+
 											</div>
+
 										<div class="pull-right tableTools-container"></div>
 										</div>
 										<div class="col-auto">
-							                <a href="<?= base_url('detailbrg/tambah'); ?>" class="btn btn-success">
-							                    <span class="icon">
-							                        <i class="fa fa-plus"></i>
-							                    </span>
-							                    <span class="text">
-							                       Tambah Barang
-							                    </span>
-							                </a>
+							              
+							                <p>
+							                <a href="<?= base_url('pias/tambah') ;?>"><b>
+											<button class="btn btn-xs btn-success">
+												<i class="ace-icon fa fa-plus bigger-110"></i>
+												Barang
+
+												<i class="ace-icon "></i>
+											</button><b></a>
+
+											<a href="<?= base_url('barangmasuk') ;?>"><b>
+											<button class="btn btn-xs btn-primary">
+												<i class="ace-icon fa fa-plus bigger-110"></i>
+
+												Stok Masuk
+												<i class="ace-icon fa fa-arrow-down icon-on-bottom"></i>
+											</button><b></a>
+
+											<a href="<?= base_url('barangkeluar') ?>"><b>
+											<button class="btn btn-xs btn-danger">
+												<i class="ace-icon fa fa-plus bigger-110"></i>
+
+												Stok Keluar
+												<i class="ace-icon fa fa-arrow-up icon-on-top"></i>
+											</button><b></a>
+
+
+											<a href="<?= base_url('laporan') ?>"><b>
+											<button class="btn btn-xs btn-warning">
+												<i class="ace-icon fa fa-print bigger-110"></i>
+												Laporan Transaksi
+												<i class="ace-icon "></i>
+											</button><b></a>
+
+											
+
+
+
+
 							            </div>
+
 
 										<div class="clearfix">
 
 										<div class="table-header">
-											Detail Barang
+											Detail Barang (Pias)
 										</div>
+
 
 										<!-- div.table-responsive -->
 
@@ -169,7 +198,14 @@
 														<td>
 															<?= $i;?>
 														</td>
-															<td ><?= $a['kode_brg'];?></td>
+															<td ><?= $a['kode_brg'];?>
+																
+
+																<a class="green" href="<?php echo base_url('pias/barcode/'.$a['kode_brg']) ?>" class="badge badge-success">
+																	<i class="ace-icon fa fa-barcode bigger-130"></i>
+																</a>
+
+															</td>
 													      <td><?= $a['nama_brg'];?></td>
 													      <td style="text-align: center;" ><?= $a['nama_jenis'];?></td>
 													      <td style="text-align: center;"><?= $a['stok'];?></td>
@@ -179,11 +215,11 @@
 															<div class="hidden-sm hidden-xs action-buttons">
 																
 
-																<a class="green" href="<?php echo base_url('detailbrg/edit/'.$a['kode_brg']) ?>" class="badge badge-success">
+																<a class="green" href="<?php echo base_url('pias/edit/'.$a['kode_brg']) ?>" class="badge badge-success">
 																	<i class="ace-icon fa fa-pencil bigger-130"></i>
 																</a>
 
-																<a class="red" href="<?php echo base_url('detailbrg/delete/'.$a['kode_brg']) ?>" onclick="javascript: return confirm('Apakah yakin menghapus')" class="badge badge-danger">
+																<a class="red" href="<?php echo base_url('pias/delete/'.$a['kode_brg']) ?>" onclick="javascript: return confirm('Apakah yakin menghapus')" class="badge badge-danger">
 																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
 																</a>
 															</div>

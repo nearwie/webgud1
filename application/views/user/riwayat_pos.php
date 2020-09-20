@@ -41,7 +41,7 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url ('asetkeluar') ;?>">Pos Hujan</a>
+								<a href="<?= base_url ('C_obskeluar') ;?>">Historis Barang Keluar</a>
 							</li>
 							<li class="active">Riwayat Kegiatan</li>
 						</ul><!-- /.breadcrumb -->
